@@ -12561,3 +12561,21 @@ color: #fff;
     bottom: -44px;
 }
 
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 4px; /* Adjust spacing between the two logos if needed */
+}
+.logo a img {
+    display: block;
+    max-height: 60px; /* Adjust as needed for your design */
+    height: auto;
+}
+
+.row.about_top {
+    display: flex;
+    align-items: center;
+}
