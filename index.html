@@ -460,31 +460,61 @@
 
 
 
-							<!-- single_portfolio_02 -->
-							<div class="col-lg-4  grid-item col-md-6 col-xs-12 col-sm-12 design responsive  witr_all_mb_30">
-								<div class="single_protfolio">
-									<div class="prot_thumb">
-										<img src="assets/images/Angelheadshot.png" alt="Image of Angel Irizarry, Realtor" >								
-										<div class="prot_content">
-											<div class="prot_content_inner">
-												<div class="picon">
-													<a class="portfolio-icon venobox vbox-item" data-gall="myportfolio" href="assets/images/Angelheadshot.png"><i class="fas fa-arrows-alt"></i></a>
-													<a href="mailto:angel@isellscre.com"><i class="fas icofont-email"></i></a>	
-												</div>
-											</div>
-										</div>
-									</div>	
-									<div class="pprotfolio4">
-										<div class="porttitle_inner4">
-											<h3><a href="tel:(803) 569-7280">Angel Irizarry</a></h3>
-											<p>
-												<span class="category-item-p">REALTOR&#174;</span>
-											</p>
+							<!-- Angel’s Profile layout -->
+<div class="col-lg-4 grid-item col-md-6 col-xs-12 col-sm-12 design responsive witr_all_mb_30">
+  <div class="single_protfolio">
+    <div class="prot_thumb">
+      <img src="assets/images/Angelheadshot.png" alt="Image of Angel Irizarry, Realtor">
+      <div class="prot_content">
+        <div class="prot_content_inner">
+          <div class="picon">
+            <a class="portfolio-icon venobox vbox-item" data-gall="myportfolio" href="assets/images/Angelheadshot.png">
+              <i class="fas fa-arrows-alt"></i>
+            </a>
+            <a href="mailto:angel@isellscre.com"><i class="fas icofont-email"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pprotfolio4">
+      <div class="porttitle_inner4">
+        <h3><a href="tel:(803) 569-7280">Angel Irizarry</a></h3>
+        <p style="margin:8px 0; font-size:14px;">
+          <span class="category-item-p">REALTOR&#174;</span>
+        </p>
+        <button
+          style="background-color:black; color:white; padding:8px 16px; border:none; border-radius:8px; cursor:pointer; font-size:16px;"
+          onmouseover="this.style.backgroundColor='white'; this.style.color='black';"
+          onmouseout="this.style.backgroundColor='black'; this.style.color='white';"
+          onclick="document.getElementById('angel-bio-modal').style.display='block';"
+        >
+          View Bio
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
-										</div>
-									</div>
-								</div>
-							</div>
+<!-- Angel’s Full-screen Bio Modal -->
+<div id="angel-bio-modal"
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:white; color:black; overflow:auto; z-index:10000;">
+  <button
+    style="position:absolute; top:20px; right:20px; padding:10px 15px; border:none; border-radius:8px; background-color:black; color:white; cursor:pointer; font-size:14px;"
+    onclick="document.getElementById('angel-bio-modal').style.display='none';"
+  >
+    Close
+  </button>
+  <div style="padding:60px 40px; max-width:800px; margin:80px auto; font-size:18px; line-height:1.6; color:#333;">
+    <h2>About Angel Irizarry</h2>
+    <p>As a dedicated real estate agent with The Tyler Simmons Team at Coldwell Banker Realty, I take immense pride in helping buyers, sellers, veterans, first-time homebuyers, and those relocating find their perfect place in the greater Columbia, South Carolina area. Drawing on my 20 years of experience as a retired U.S. Army veteran, I approach every client with commitment, honesty, and an unwavering drive to get results.</p>
+    <p>Since 2016, I’ve enjoyed guiding clients through every stage of their real estate journey, from first-time homebuyers achieving their dreams to military families making a fresh start. I am especially passionate about helping veterans and those new to the homebuying process feel confident and supported at every turn. In addition to real estate, I am the co-owner of Burn Bootcamp Lake Murray with my wife Hailey and remain actively involved in our local community.</p>
+    <p>Family is a cornerstone in my life. I’m a proud husband and dad to four wonderful daughters (two in college, one in high school, and a lively toddler). When I’m not connecting people with their ideal homes, you’ll find me out hunting, fishing, and enjoying all that our beautiful South Carolina outdoors has to offer.</p>
+    <p>I am honored to be part of The Tyler Simmons Team at Coldwell Banker Realty, where local expertise and client-first service define everything we do. Tyler and I first worked together on the same real estate team several years ago, so when he brought his group to Coldwell Banker, I was thrilled to join forces again. I value the trust and teamwork that define our team, and I can’t wait to put our combined experience and knowledge to work for you in Columbia, Lake Murray, Lexington, Irmo, and throughout the Midlands.</p>
+    <p>A few achievements I’m proud of: I led the top team at Excel Real Estate and ranked as the top referral agent in 2020. Whether you are buying, selling, or relocating, my mission is to go above and beyond to help clients realize their dreams of homeownership. I’ll do whatever it takes to ensure your real estate experience is a positive one.</p>
+    <p>If you’re ready to take the next step, I’m here and excited to help. Let’s connect and start your journey together!</p>
+  </div>
+</div>
+
 
 							
 
