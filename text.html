@@ -15,6 +15,29 @@
         <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>        
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css"/>
+		<!-- Font Awesome 6 (Latest) for new social media icons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<!-- Ensure original Font Awesome 5 styling -->
+		<style>
+		.footer-menu a .fa {
+		  font-family: 'FontAwesome' !important;
+		  font-weight: normal !important;
+		  font-style: normal !important;
+		}
+		
+		/* Custom SVG icon styling */
+		.footer-menu a img {
+		  width: 16px;
+		  height: 16px;
+		  transition: all 0.3s ease;
+		  filter: brightness(0) invert(1); /* Makes SVG white by default */
+		}
+		
+		/* Hover effects for SVG icons - makes them black on hover */
+		.footer-menu a:hover img {
+		  filter: brightness(1) invert(0); /* Makes SVG black on hover */
+		}
+		</style>
 		<!-- modernizr js -->	
         <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>		
 		
@@ -51,11 +74,78 @@
   gtag('config', 'G-5DKL1FRFGF');
 </script>
 
-	<header>
-		   <!--Accessibility Widget for Website Accessibilty use in bottom left corner -->
-		   <script src="https://d2twz9av6or5hk.cloudfront.net/1.6/adally.js"></script>
+	<header role="banner" aria-label="Site header">
 	</header>
 <body>
+	<!-- Accessibility Widget for Website Accessibility use in bottom left corner -->
+	<script>
+		// Ensure Adally widget loads properly
+		(function() {
+			var script = document.createElement('script');
+			script.src = 'https://d2twz9av6or5hk.cloudfront.net/1.6/adally.js';
+			script.async = true;
+			script.onload = function() {
+				console.log('Adally widget loaded successfully');
+			};
+			script.onerror = function() {
+				console.error('Failed to load Adally widget');
+				// Show fallback accessibility widget
+				showFallbackWidget();
+			};
+			document.head.appendChild(script);
+			
+			// Check if Adally widget appears within 5 seconds
+			setTimeout(function() {
+				if (!document.querySelector('#adally-widget, .adally-widget, [class*="adally"], [class*="Adally"]')) {
+					console.log('Adally widget not found, showing fallback');
+					showFallbackWidget();
+				}
+			}, 5000);
+		})();
+		
+		function showFallbackWidget() {
+			var fallback = document.createElement('div');
+			fallback.className = 'accessibility-fallback show';
+			fallback.innerHTML = '<a href="#" onclick="toggleAccessibilityMenu()">♿ Accessibility</a>';
+			document.body.appendChild(fallback);
+		}
+		
+		function toggleAccessibilityMenu() {
+			// Simple accessibility menu
+			var menu = document.createElement('div');
+			menu.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,0.3);z-index:10001;';
+			menu.innerHTML = `
+				<h3>Accessibility Options</h3>
+				<button onclick="increaseFontSize()">Increase Font Size</button><br><br>
+				<button onclick="decreaseFontSize()">Decrease Font Size</button><br><br>
+				<button onclick="toggleHighContrast()">Toggle High Contrast</button><br><br>
+				<button onclick="closeMenu()">Close</button>
+			`;
+			menu.id = 'accessibility-menu';
+			document.body.appendChild(menu);
+		}
+		
+		function closeMenu() {
+			var menu = document.getElementById('accessibility-menu');
+			if (menu) menu.remove();
+		}
+		
+		function increaseFontSize() {
+			var currentSize = parseInt(getComputedStyle(document.body).fontSize);
+			document.body.style.fontSize = (currentSize + 2) + 'px';
+		}
+		
+		function decreaseFontSize() {
+			var currentSize = parseInt(getComputedStyle(document.body).fontSize);
+			document.body.style.fontSize = (currentSize - 2) + 'px';
+		}
+		
+		function toggleHighContrast() {
+			document.body.classList.toggle('high-contrast');
+		}
+	</script>
+	<!-- Skip Navigation for Screen Readers -->
+	<a href="#main-content" class="skip-nav">Skip to main content</a>
 <div class="em40_header_area_main">
 	<div class="ministor-main-menu one_page hidden-xs hidden-sm witr_h_h10">
 		<div class="ministor_nav_area scroll_fixed postfix">

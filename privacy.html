@@ -15,6 +15,29 @@
         <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>        
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css"/>
+		<!-- Font Awesome 6 (Latest) for new social media icons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<!-- Ensure original Font Awesome 5 styling -->
+		<style>
+		.footer-menu a .fa {
+		  font-family: 'FontAwesome' !important;
+		  font-weight: normal !important;
+		  font-style: normal !important;
+		}
+		
+		/* Custom SVG icon styling */
+		.footer-menu a img {
+		  width: 16px;
+		  height: 16px;
+		  transition: all 0.3s ease;
+		  filter: brightness(0) invert(1); /* Makes SVG white by default */
+		}
+		
+		/* Hover effects for SVG icons - makes them black on hover */
+		.footer-menu a:hover img {
+		  filter: brightness(1) invert(0); /* Makes SVG black on hover */
+		}
+		</style>
 		<!-- modernizr js -->	
         <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>		
 		
@@ -51,11 +74,78 @@
   gtag('config', 'G-5DKL1FRFGF');
 </script>
 
-	<header>
-		   <!--Accessibility Widget for Website Accessibilty use in bottom left corner -->
-		   <script src="https://d2twz9av6or5hk.cloudfront.net/1.6/adally.js"></script>
+	<header role="banner" aria-label="Site header">
 	</header>
 <body>
+	<!-- Accessibility Widget for Website Accessibility use in bottom left corner -->
+	<script>
+		// Ensure Adally widget loads properly
+		(function() {
+			var script = document.createElement('script');
+			script.src = 'https://d2twz9av6or5hk.cloudfront.net/1.6/adally.js';
+			script.async = true;
+			script.onload = function() {
+				console.log('Adally widget loaded successfully');
+			};
+			script.onerror = function() {
+				console.error('Failed to load Adally widget');
+				// Show fallback accessibility widget
+				showFallbackWidget();
+			};
+			document.head.appendChild(script);
+			
+			// Check if Adally widget appears within 5 seconds
+			setTimeout(function() {
+				if (!document.querySelector('#adally-widget, .adally-widget, [class*="adally"], [class*="Adally"]')) {
+					console.log('Adally widget not found, showing fallback');
+					showFallbackWidget();
+				}
+			}, 5000);
+		})();
+		
+		function showFallbackWidget() {
+			var fallback = document.createElement('div');
+			fallback.className = 'accessibility-fallback show';
+			fallback.innerHTML = '<a href="#" onclick="toggleAccessibilityMenu()">♿ Accessibility</a>';
+			document.body.appendChild(fallback);
+		}
+		
+		function toggleAccessibilityMenu() {
+			// Simple accessibility menu
+			var menu = document.createElement('div');
+			menu.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,0.3);z-index:10001;';
+			menu.innerHTML = `
+				<h3>Accessibility Options</h3>
+				<button onclick="increaseFontSize()">Increase Font Size</button><br><br>
+				<button onclick="decreaseFontSize()">Decrease Font Size</button><br><br>
+				<button onclick="toggleHighContrast()">Toggle High Contrast</button><br><br>
+				<button onclick="closeMenu()">Close</button>
+			`;
+			menu.id = 'accessibility-menu';
+			document.body.appendChild(menu);
+		}
+		
+		function closeMenu() {
+			var menu = document.getElementById('accessibility-menu');
+			if (menu) menu.remove();
+		}
+		
+		function increaseFontSize() {
+			var currentSize = parseInt(getComputedStyle(document.body).fontSize);
+			document.body.style.fontSize = (currentSize + 2) + 'px';
+		}
+		
+		function decreaseFontSize() {
+			var currentSize = parseInt(getComputedStyle(document.body).fontSize);
+			document.body.style.fontSize = (currentSize - 2) + 'px';
+		}
+		
+		function toggleHighContrast() {
+			document.body.classList.toggle('high-contrast');
+		}
+	</script>
+	<!-- Skip Navigation for Screen Readers -->
+	<a href="#main-content" class="skip-nav">Skip to main content</a>
 <div class="em40_header_area_main">
 	<div class="ministor-main-menu one_page hidden-xs hidden-sm witr_h_h10">
 		<div class="ministor_nav_area scroll_fixed postfix">
@@ -74,20 +164,24 @@
 					<!-- END LOGO -->
 					<!-- MAIN MENU -->
 					<div class="col-md-9 col-sm-9 col-xs-8">
-						<nav class="ministor_menu main-search-menu">	
-							<ul class="sub-menu nav_scroll">
-								<li class="current">
-									<a href="index.html">Home</a>
+						<nav class="ministor_menu main-search-menu" role="navigation" aria-label="Main navigation">	
+							<ul class="sub-menu nav_scroll" role="menubar">
+								<li role="none">
+									<a href="index.html" role="menuitem">Home</a>
 								</li>
-								<li><a href="#about">About</a></li>
-								<li><a href="#service">Service</a></li>
-								<li><a href="#portfolio">Team</a></li>
-								<li><a href="#testimonial">Testimonials</a></li>
-								<li><a href="#search">Home Search</a></li>
-								<li><a href="#contact">Contact</a></li>
-								<li><a href="https://the-simmons-newsletter.beehiiv.com/">Blog</a></li>
-								<li><a href="tel:(803) 999-7522"><img src="assets/images/white-phone.png" alt="phone icon" width="10px"></a></li>
-
+								<li role="none"><a href="#about" role="menuitem">About</a></li>
+								<li role="none"><a href="#service" role="menuitem">Service</a></li>
+								<li role="none"><a href="#portfolio" role="menuitem">Team</a></li>
+								<li role="none"><a href="#testimonial" role="menuitem">Testimonials</a></li>
+								<li role="none"><a href="#search" role="menuitem">Home Search</a></li>
+								<li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+								<li role="none"><a href="https://the-simmons-newsletter.beehiiv.com/" role="menuitem">Blog</a></li>
+								<li role="none">
+									<a href="tel:(803) 999-7522" role="menuitem" aria-label="Call us at (803) 999-7522">
+										<img src="assets/images/white-phone.png" alt="" width="10px" aria-hidden="true">
+										<span class="sr-only">Call (803) 999-7522</span>
+									</a>
+								</li>
 							</ul>						
 							<div class="em-quearys-top msin-menu-search">
 								<div class="em-top-quearys-area">
@@ -161,8 +255,7 @@
 </div>
 <!-- END MOBILE MENU AREA  -->
 
-
-
+<main id="main-content" role="main">
 
 <div class="wirr_project_area" id="portfolio">
 	<div class="container">
@@ -216,13 +309,9 @@
 
     </div>
 
+</main>
 
-
-
-
-
-
-<footer>
+<footer role="contentinfo" aria-label="Site footer">
 
 <!-- witrfm_footer_area -->
 <div class="witrfm_area">
@@ -236,14 +325,67 @@
 				</div>
 				<div class="col-lg-6 col-md-6  col-sm-12">				
 					<div class="footer-menu">
-						<ul class="text-right">
-							<li><a target="_blank" href="https://www.facebook.com/simmonsstrattongroup"><i class="fa fa-facebook-f"></i></a></li>
-							<li><a target="_blank" href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x88568f9d0c986119:0x9b496b21eae3349a!12e1?source=g.page.m.rc._&laa=merchant-web-dashboard-card"><i class="fab fa-google"></i></a></li>
-							<li><a href="tel:(803) 999-7522"><i class="fa fa-phone"></i></a></li>
-							<li><a href="mailto:admin@isellscre.com"><i class="fa fa-laptop"></i></a></li>
-                            <li><a href="privacy.html" style="color: white;"><i style='font-size:16px' class='fas'>&#xf505;</i></a></li>
-
-
+						<ul class="text-right" role="list">
+							<li role="listitem">
+								<a target="_blank" href="https://www.facebook.com/tylersimmonsteam" aria-label="Visit our Facebook page">
+									<i class="fa fa-facebook-f" aria-hidden="true"></i>
+									<span class="sr-only">Facebook</span>
+								</a>
+							</li>
+							<li role="listitem">
+								<a target="_blank" href="https://www.instagram.com/tylersimmonsteam/" aria-label="Visit our Instagram page">
+									<i class="fab fa-instagram" aria-hidden="true"></i>
+									<span class="sr-only">Instagram</span>
+								</a>
+							</li>
+							<li role="listitem">
+								<a target="_blank" href="https://www.youtube.com/@TylerSimmonsTeam" aria-label="Visit our YouTube channel">
+									<i class="fab fa-youtube" aria-hidden="true"></i>
+									<span class="sr-only">YouTube</span>
+								</a>
+							</li>
+							<li role="listitem">
+								<a target="_blank" href="https://www.tiktok.com/@thetylersimmonsteam" aria-label="Visit our TikTok page">
+									<img src="assets/images/tiktok-icon.svg" alt="TikTok" width="16" height="16" style="width: 16px; height: 16px;">
+									<span class="sr-only">TikTok</span>
+								</a>
+							</li>
+							<li role="listitem">
+								<a target="_blank" href="https://www.threads.com/@tylersimmonsteam" aria-label="Visit our Threads page">
+									<img src="assets/images/threads-icon.svg" alt="Threads" width="16" height="16" style="width: 16px; height: 16px;">
+									<span class="sr-only">Threads</span>
+								</a>
+							</li>
+							<li role="listitem">
+								<a target="_blank" href="https://x.com/TylerSimmonsRE" aria-label="Visit our X (Twitter) page">
+									<img src="assets/images/x-icon.svg" alt="X (Twitter)" width="16" height="16" style="width: 16px; height: 16px;">
+									<span class="sr-only">X (Twitter)</span>
+								</a>
+							</li>
+							<li role="listitem">
+								<a target="_blank" href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x88568f9d0c986119:0x9b496b21eae3349a!12e1?source=g.page.m.rc._&laa=merchant-web-dashboard-card" aria-label="View our Google Business listing">
+									<i class="fab fa-google" aria-hidden="true"></i>
+									<span class="sr-only">Google Business</span>
+								</a>
+							</li>
+							<li role="listitem">
+								<a href="tel:(803) 999-7522" aria-label="Call us at (803) 999-7522">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+									<span class="sr-only">Phone</span>
+								</a>
+							</li>
+							<li role="listitem">
+								<a href="mailto:admin@isellscre.com" aria-label="Email us at admin@isellscre.com">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									<span class="sr-only">Email</span>
+								</a>
+							</li>
+							<li role="listitem">
+								<a href="privacy.html" aria-label="Privacy Policy">
+									<i style='font-size:16px' class='fas'>&#xf505;</i>
+									<span class="sr-only">Privacy Policy</span>
+								</a>
+							</li>
 						</ul>				
 					</div>
 				</div>

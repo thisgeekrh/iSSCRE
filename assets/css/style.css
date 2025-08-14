@@ -1,5 +1,272 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
+/* Accessibility Styles */
+.skip-nav {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: 4px;
+}
+
+.skip-nav:focus {
+  top: 6px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus Indicators */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  a {
+    color: #0000EE !important;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Form Error Messages */
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Form validation styles */
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+input[aria-invalid="false"],
+textarea[aria-invalid="false"] {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Ensure Adally widget is visible */
+#adally-widget,
+.adally-widget,
+[class*="adally"],
+[class*="Adally"] {
+  z-index: 9999 !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure accessibility features don't interfere with Adally */
+.skip-nav {
+  z-index: 10000 !important;
+}
+
+/* Fallback accessibility widget if Adally doesn't load */
+.accessibility-fallback {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9998;
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  display: none;
+}
+
+.accessibility-fallback.show {
+  display: block;
+}
+
+/* High contrast mode */
+.high-contrast {
+  background: white !important;
+  color: black !important;
+}
+
+.high-contrast * {
+  background: white !important;
+  color: black !important;
+  border-color: black !important;
+}
+
+.high-contrast a {
+  color: #0000EE !important;
+  text-decoration: underline !important;
+}
+
+.high-contrast button {
+  background: black !important;
+  color: white !important;
+  border: 2px solid black !important;
+}
+
+/* Social Media Icons Styling */
+.footer-menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+.footer-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-menu a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 0 2px;
+}
+
+.footer-menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  color: white;
+}
+
+.footer-menu i {
+  font-size: 16px;
+}
+
+/* Ensure original Font Awesome 5 styling for existing icons */
+.footer-menu a .fa {
+  font-family: 'FontAwesome' !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+
+/* Override Font Awesome 6 for specific new icons only */
+.footer-menu a .fa-tiktok {
+  font-family: 'Font Awesome 6 Brands' !important;
+}
+
+/* Custom SVG icon styling */
+.footer-menu a img {
+  width: 16px;
+  height: 16px;
+  transition: all 0.3s ease;
+  filter: brightness(0) invert(1); /* Makes SVG white by default */
+}
+
+/* Hover effects for SVG icons - makes them black on hover */
+.footer-menu a:hover img {
+  filter: brightness(1) invert(0); /* Makes SVG black on hover */
+}
+
+/* Social Media Icon Colors on Hover */
+.footer-menu a[href*="facebook"]:hover {
+  background: #1877f2 !important;
+}
+
+.footer-menu a[href*="instagram"]:hover {
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%) !important;
+}
+
+.footer-menu a[href*="youtube"]:hover {
+  background: #ff0000 !important;
+}
+
+.footer-menu a[href*="tiktok"]:hover {
+  background: #000000 !important;
+}
+
+.footer-menu a[href*="threads"]:hover {
+  background: #000000 !important;
+}
+
+.footer-menu a[href*="x.com"]:hover,
+.footer-menu a[href*="twitter"]:hover {
+  background: #000000 !important;
+}
+
+
+
+.footer-menu a[href*="google"]:hover {
+  background: #4285f4 !important;
+}
+
+.footer-menu a[href*="tel:"]:hover {
+  background: #25d366 !important;
+}
+
+.footer-menu a[href*="mailto:"]:hover {
+  background: #ea4335 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-menu ul {
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .footer-menu a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+  
+  .footer-menu i {
+    font-size: 14px;
+  }
+}
+
 
 /* === style_w10 theme default ==== */
 
