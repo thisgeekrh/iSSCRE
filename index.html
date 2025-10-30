@@ -194,9 +194,9 @@
                 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="venobox/venobox.css"/>
         <link rel="stylesheet" type="text/css" href="assets/css/plugin_theme_css.css"/>
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
-        <link rel="stylesheet" type="text/css" href="style.css"/>
-        <link rel="stylesheet" type="text/css" href="assets/css/responsive.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css"/>
         <!-- Font Awesome 6 (Latest) for new social media icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Ensure original Font Awesome 5 styling -->
@@ -1912,26 +1912,7 @@ Matt’s Full-screen Bio Modal
 						</div>
 					</div>
 				</div>
-				<div class="em-service2 sleft all_color_service">
-					<div class="em_service_content ">
-						<div class="em_single_service_text ">
-							<div class="service_top_image"></div>
-							<div class="text_box">
-								<div class="service_top_text all_icon_color">
-									<div class="em-service-icon">
-										<i class="icofont-google-map"></i>
-									</div>			
-								</div>
-								<div class="em-service-inner">
-									<div class="em-service-title">
-										<a href="https://maps.app.goo.gl/6dxFubeM4uAApt4j7" target="_blank"><h3>1711 Gervais St, Columbia, South Carolina 29201</h3></a>
-									</div>						
-									<div class="em-service-desc"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+					<!-- Empty space where map header used to be -->
 			</div>
 			<div class="col-lg-6 col-md-7 col-sm-12">
 				<div class="apartment_area">
@@ -1989,12 +1970,18 @@ Matt’s Full-screen Bio Modal
 								</div>
 							</div>
 						</form>
-					</div>					
-				</div>									
-			</div>
-		</div>			
-	</div>			
-</div>
+						</div>					
+					</div>						
+						</div>
+				</div>
+				<!-- Embedded Google Map (responsive) — aligned to the right column on desktop -->
+				<!-- Visual separator between form and map -->
+				<div class="map-section-divider"></div>
+				
+				<div class="row mt-4">
+					<div class="col-12">
+						</div>
+	</div>
 
 
 
@@ -2100,6 +2087,50 @@ Matt’s Full-screen Bio Modal
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- Office Location Map Section -->
+<div class="office-map-section" style="background: #f8f9fa; padding: 60px 0;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 mx-auto text-center">
+				<h3 style="color: #333; margin-bottom: 25px; font-size: 36px; font-weight: 700;">Visit Our Office</h3>
+				<p style="color: #666; margin-bottom: 25px; font-size: 18px;">1711 Gervais St, Columbia, SC 29201</p>
+				<a class="butn" href="https://maps.app.goo.gl/BCTx7mZkuD2F3NtP7" target="_blank" rel="noopener noreferrer" style="margin-bottom: 30px;">
+					<i class="fas fa-map-marker-alt"></i> Open in Google Maps
+				</a>
+				<div class="map-responsive" role="region" aria-label="Map showing our office location" style="margin-top: 30px; border-radius: 12px; overflow: hidden; position: relative; padding-bottom: 56.25%; height: 0;">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.5436183813763!2d-81.02772562318648!3d34.00425447317509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f8a55f6dbc73df%3A0x96dd9851a267659a!2sThe%20Tyler%20Simmons%20Team%20at%20Coldwell%20Banker%20Realty!5e0!3m2!1sen!2sus!4v1761788992501!5m2!1sen!2sus" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Google Map of The Tyler Simmons Team"></iframe>
+				</div>
+				<!-- noscript fallback -->
+				<noscript>
+					<p style="margin-top: 15px; color: #666;">Map is not available because JavaScript is disabled — view on <a href="https://maps.app.goo.gl/BCTx7mZkuD2F3NtP7" target="_blank" rel="noopener noreferrer">Google Maps</a></p>
+				</noscript>
+			</div>
+		</div>
+	</div>
+	<!-- Structured data for SEO -->
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "Place",
+	  "name": "The Tyler Simmons Team at Coldwell Banker Realty",
+	  "address": {
+		"@type": "PostalAddress",
+		"streetAddress": "1711 Gervais St",
+		"addressLocality": "Columbia",
+		"addressRegion": "SC",
+		"postalCode": "29201",
+		"addressCountry": "US"
+	  },
+	  "geo": {
+		"@type": "GeoCoordinates",
+		"latitude": 34.00425447317509,
+		"longitude": -81.02772562318648
+	  },
+	  "hasMap": "https://www.google.com/maps/place/1711+Gervais+St,+Columbia,+SC+29201"
+	}
+	</script>
 </div>
 
 <!-- witrfm_footer_area -->
