@@ -1,0 +1,142 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "RealEstateAgent",
+      "@id": "https://isellscre.com/#real-estate-agent",
+      "name": "The Tyler Simmons Team",
+      "description": "South Carolina real estate team helping buyers, sellers, relocators, and investors across Columbia, Florence, Myrtle Beach, York County, the Midlands, the Pee Dee, the coast, and statewide markets.",
+      "url": "https://isellscre.com/",
+      "telephone": "+1-803-999-7522",
+      "email": "admin@isellscre.com",
+      "image": "https://isellscre.com/assets/images/logo.png",
+      "logo": "https://isellscre.com/assets/images/logo.png",
+      "priceRange": "Consultation available",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1711 Gervais St",
+        "addressLocality": "Columbia",
+        "addressRegion": "SC",
+        "postalCode": "29201",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.00425447317509,
+        "longitude": -81.02772562318648
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Coldwell Banker Realty"
+      },
+      "areaServed": [
+        { "@type": "State", "name": "South Carolina" },
+        { "@type": "City", "name": "Columbia" },
+        { "@type": "City", "name": "Florence" },
+        { "@type": "City", "name": "Myrtle Beach" },
+        { "@type": "City", "name": "Rock Hill" },
+        { "@type": "AdministrativeArea", "name": "Richland County" },
+        { "@type": "AdministrativeArea", "name": "Lexington County" },
+        { "@type": "AdministrativeArea", "name": "Fairfield County" },
+        { "@type": "AdministrativeArea", "name": "Florence County" },
+        { "@type": "AdministrativeArea", "name": "Horry County" },
+        { "@type": "AdministrativeArea", "name": "York County" }
+      ],
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home buying representation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home selling and listing strategy" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Relocation assistance" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Investment property guidance" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home value consultation" } }
+      ],
+      "employee": [
+        { "@type": "Person", "name": "Tyler Simmons", "jobTitle": "Realtor" },
+        { "@type": "Person", "name": "Ben Battiata", "jobTitle": "Realtor" },
+        { "@type": "Person", "name": "Hollie Stabler", "jobTitle": "Realtor" },
+        { "@type": "Person", "name": "Lisa Simmons", "jobTitle": "Realtor" }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/tylersimmonsteam",
+        "https://www.instagram.com/tylersimmonsteam/",
+        "https://www.youtube.com/@TylerSimmonsTeam",
+        "https://www.tiktok.com/@thetylersimmonsteam",
+        "https://www.threads.com/@tylersimmonsteam",
+        "https://x.com/TylerSimmonsRE"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://isellscre.com/#website",
+      "url": "https://isellscre.com/",
+      "name": "The Tyler Simmons Team",
+      "description": "South Carolina real estate services for buying, selling, relocation, home valuation, and investment properties.",
+      "publisher": { "@id": "https://isellscre.com/#real-estate-agent" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Place",
+      "@id": "https://isellscre.com/#office",
+      "name": "The Tyler Simmons Team Office",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1711 Gervais St",
+        "addressLocality": "Columbia",
+        "addressRegion": "SC",
+        "postalCode": "29201",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.00425447317509,
+        "longitude": -81.02772562318648
+      },
+      "hasMap": "https://www.google.com/maps/place/1711+Gervais+St,+Columbia,+SC+29201"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://isellscre.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What areas do you serve in South Carolina?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Tyler Simmons Team serves the entire state of South Carolina, including Columbia, Florence, Myrtle Beach, York County, Richland County, Lexington County, Fairfield County, Florence County, Horry County, and surrounding communities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you help first-time homebuyers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The team guides first-time homebuyers through pre-approval, home search, offers, inspections, closing, and local neighborhood decisions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you determine the best price for my home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The team uses local market analysis, comparable sales, property condition, neighborhood demand, and pricing strategy to help sellers position their homes competitively."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you help with investment properties?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Tyler Simmons Team helps clients evaluate rental properties, vacation homes, land, and other real estate investment opportunities across South Carolina."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can clients contact the team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Call 803-999-7522, email admin@isellscre.com, or use the contact form at https://isellscre.com/#contact."
+          }
+        }
+      ]
+    }
+  ]
+}

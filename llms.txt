@@ -1,37 +1,45 @@
-# The Tyler Simmons Team – Real Estate Experts Serving All of South Carolina
+# The Tyler Simmons Team - South Carolina Real Estate Experts
 
-> Helping you buy, sell, and invest with confidence across the Palmetto State. From Columbia to Charleston and everywhere in between – we turn real estate goals into reality.
+> The Tyler Simmons Team helps people buy, sell, relocate, and invest in real estate across South Carolina, with statewide service from Columbia and the Midlands to Florence, Myrtle Beach, York County, and coastal markets.
 
-Here's what you can do with The Tyler Simmons Team:
+## What The Team Helps With
 
-- Find your dream home or investment property anywhere in South Carolina  
-- Sell your home faster with expert staging, marketing, and local knowledge  
-- Get market insights and personalized guidance from seasoned real estate professionals  
-- Explore helpful blog content on buying, selling, relocating, and investing  
-- Work with a real estate team that values trust, service, and community
+- Buying a home anywhere in South Carolina
+- Selling a home with pricing, staging, marketing, and negotiation support
+- Relocation guidance for people moving to or within South Carolina
+- Investment property research and buyer representation
+- Home value consultations and local market insight
 
-[Visit Our Website](https://isellscre.com): Explore our listings, meet the team, and start your journey home.
+[Visit the website](https://isellscre.com/): Meet the team, review services, search homes, and contact an agent.
 
-## Real Estate Services
-- [Home Buying Support](https://isellscre.com/#service): Discover how we guide buyers through every step of the process.
-- [Selling Made Easy](https://isellscre.com/#service): Learn how we help sellers price, stage, and market their homes.
-- [Relocation Assistance](https://isellscre.com/#service): Moving to South Carolina? Let us help you feel right at home.
+## Main Site Pages
 
-## Why Choose Us?
-- [About The Tyler Simmons Team](https://isellscre.com/#about): Learn what sets our team apart in South Carolina real estate.
-- [Client Reviews](https://isellscre.com/#testimonial): Real feedback from happy clients across the state.
-- [Our Community Focus](https://isellscre.com/#about): We’re deeply connected to the South Carolina communities we serve.
+- [Home](https://isellscre.com/): Overview of the team, services, service areas, testimonials, home search, FAQ, and contact form.
+- [Home Estimate](https://isellscre.com/eval.html): Start a home value conversation.
+- [Lending Partner](https://isellscre.com/lend.html): Mortgage and lending information.
+- [Careers / Team Info](https://isellscre.com/care.html): Information related to team opportunities and support.
+- [Text Us](https://isellscre.com/text.html): Contact and text-message oriented page.
+- [Privacy Policy](https://isellscre.com/privacy.html): Privacy information.
 
-## Blog
-- [Real Estate Blog](https://the-simmons-newsletter.beehiiv.com/): Market updates, home tips, moving guides, and more.
+## Service Areas
 
-## Featured Blog Posts
-- [Tips for First-Time Buyers in South Carolina](https://the-simmons-newsletter.beehiiv.com/p/first-time-homebuyer-sc): Navigate your first home purchase with ease.
-- [2025 Summer Guide to South Carolina](https://the-simmons-newsletter.beehiiv.com/p/your-free-2025-summer-guide-to-a-spectacular-summer-in-south-carolina-0480fa02e1c93f35): Local events, eats, and things to do.
-- [Staging Your Home to Sell Faster](https://the-simmons-newsletter.beehiiv.com/p/staging-tips-to-sell-your-home-faster): Simple tips to boost your home's appeal.
-- [Moving to Columbia, SC](https://the-simmons-newsletter.beehiiv.com/p/moving-to-columbia-sc-guide): Everything to know about relocating to Columbia.
+The team serves South Carolina statewide, including Columbia, Lexington, Irmo, Chapin, Blythewood, Florence, Myrtle Beach, Rock Hill, Chester, York County, Richland County, Lexington County, Fairfield County, Florence County, Horry County, and the Lake Murray region.
 
-## Contact Us
-- [Get in Touch](https://isellscre.com/#contact): Reach out to our team for questions, showings, or consultations.
-- Phone: 803-999-7522  
+## Team And Brand
+
+- Brokerage brand shown on site: Coldwell Banker Realty
+- Public team members shown on site: Tyler Simmons, Ben Battiata, Hollie Stabler, Lisa Simmons
+- Office: 1711 Gervais St, Columbia, SC 29201
+
+## Contact
+
+- Phone: 803-999-7522
 - Email: admin@isellscre.com
+- Contact form: https://isellscre.com/#contact
+
+## AI And Crawler Resources
+
+- [Full AI context](https://isellscre.com/llms-full.txt)
+- [Structured data](https://isellscre.com/schema.json)
+- [Sitemap](https://isellscre.com/sitemap.xml)
+- [Robots policy](https://isellscre.com/robots.txt)
