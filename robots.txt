@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+Disallow: /thanks.html
+Disallow: /mail.php
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://isellscre.com/sitemap.xml
+
+# AI assistant context files
+# Summary: https://isellscre.com/llms.txt
+# Full context: https://isellscre.com/llms-full.txt
