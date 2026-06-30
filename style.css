@@ -1,0 +1,217 @@
+/* Responsive and accessibility overrides for the Tyler Simmons Team site.
+   This file is already referenced by the HTML and replaces the current 404. */
+
+:root {
+  --tap-target: 44px;
+  --content-gutter: clamp(16px, 4vw, 32px);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 96px;
+}
+
+body {
+  overflow-x: clip;
+}
+
+img,
+iframe,
+video,
+svg {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button {
+  overflow-wrap: break-word;
+}
+
+.skip-nav {
+  align-items: center;
+  background: #111;
+  color: #fff !important;
+  display: inline-flex;
+  font-weight: 700;
+  justify-content: center;
+  left: 8px;
+  min-height: var(--tap-target);
+  padding: 0 16px;
+  position: absolute;
+  top: -64px;
+  z-index: 100000;
+}
+
+.skip-nav:focus,
+.skip-nav:focus-visible {
+  outline: 3px solid #f5c542;
+  outline-offset: 2px;
+  top: 8px;
+}
+
+button,
+[type="button"],
+[type="submit"],
+.butn,
+.btn,
+.w_btn2,
+.faq-header,
+.mean-container .meanmenu-reveal,
+.mean-container .mean-nav ul li a,
+.ministor_menu > ul > li > a,
+.footer-menu ul li a,
+.portfolio-icon,
+.team-style-2 button,
+button[onclick*="bio-modal"] {
+  min-height: var(--tap-target);
+  touch-action: manipulation;
+}
+
+.ministor_menu > ul > li > a,
+.footer-menu ul li a,
+.mean-container .mean-nav ul li a {
+  align-items: center;
+  display: inline-flex;
+}
+
+.footer-menu ul {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.footer-menu ul li a {
+  justify-content: center;
+  min-width: var(--tap-target);
+}
+
+.owl-dot,
+.slick-dots li button,
+.nivo-controlNav a {
+  min-height: var(--tap-target) !important;
+  min-width: var(--tap-target) !important;
+}
+
+input,
+select,
+textarea {
+  font-size: 16px;
+  max-width: 100%;
+}
+
+input,
+select,
+.w_btn2 {
+  min-height: 48px;
+}
+
+textarea {
+  min-height: 140px;
+}
+
+[role="button"],
+a[href^="tel:"],
+a[href^="mailto:"] {
+  touch-action: manipulation;
+}
+
+.map-responsive,
+.map-responsive iframe {
+  max-width: 100%;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
+@media (max-width: 991px) {
+  html {
+    scroll-padding-top: 76px;
+  }
+
+  .container {
+    padding-left: var(--content-gutter);
+    padding-right: var(--content-gutter);
+  }
+
+  .mobile_logo_area img,
+  .logo img {
+    height: auto;
+    max-width: min(100%, 280px);
+  }
+
+  .mean-container .meanmenu-reveal {
+    align-items: center;
+    display: inline-flex !important;
+    justify-content: center;
+    min-width: var(--tap-target);
+  }
+
+  .mean-container .mean-nav ul li a {
+    font-size: 16px;
+    line-height: 1.35;
+    padding-bottom: 12px;
+    padding-top: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cta-section {
+    border-radius: 0 !important;
+    margin-left: calc(var(--content-gutter) * -1) !important;
+    margin-right: calc(var(--content-gutter) * -1) !important;
+    padding-left: var(--content-gutter) !important;
+    padding-right: var(--content-gutter) !important;
+  }
+
+  .cta-section .butn,
+  .witr_btn,
+  .w_btn2,
+  .btn {
+    justify-content: center;
+    line-height: 1.25;
+    width: 100%;
+  }
+
+  .faq-header {
+    font-size: 16px;
+    line-height: 1.4;
+    padding-right: 56px;
+  }
+
+  .footer-menu ul {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .footer-menu ul li a {
+    border-radius: 4px;
+  }
+
+  .team-style-2 button,
+  button[onclick*="bio-modal"] {
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
