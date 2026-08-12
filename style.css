@@ -134,30 +134,6 @@ a[href^="mailto:"] {
   outline: none;
 }
 
-/* Team card stacking fix. Keep each photo above any stray text or decorative
-   content without clipping the Isotope portfolio layout. */
-.wirr_project_area .prot_thumb {
-  background: #fff;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.wirr_project_area .prot_thumb > img {
-  background: #fff;
-  position: relative;
-  z-index: 2;
-}
-
-.wirr_project_area .prot_content {
-  z-index: 3;
-}
-
-.wirr_project_area .pprotfolio4 {
-  background: #fff;
-  position: relative;
-  z-index: 2;
-}
-
 @media (max-width: 991px) {
   html {
     scroll-padding-top: 76px;
