@@ -134,43 +134,28 @@ a[href^="mailto:"] {
   outline: none;
 }
 
-/* Keep the Team portfolio cards in their own stacking layer. This prevents
-   text from adjacent/overlapping portfolio elements from showing behind the
-   agent photos, most noticeably on Tyler's card during hover states. */
-.wirr_project_area {
+/* Team card stacking fix. Keep each photo above any stray text or decorative
+   content without clipping the Isotope portfolio layout. */
+.wirr_project_area .prot_thumb {
   background: #fff;
   isolation: isolate;
   overflow: hidden;
-  position: relative;
 }
 
-.wirr_project_area .project_top,
-.wirr_project_area .prot_wrap,
-.wirr_project_area .grid-item,
-.wirr_project_area .single_protfolio,
-.wirr_project_area .prot_thumb {
-  position: relative;
-}
-
-.wirr_project_area .grid-item,
-.wirr_project_area .single_protfolio,
-.wirr_project_area .prot_thumb,
-.wirr_project_area .pprotfolio4 {
+.wirr_project_area .prot_thumb > img {
   background: #fff;
-}
-
-.wirr_project_area .grid-item {
-  z-index: 1;
-}
-
-.wirr_project_area .prot_thumb {
-  overflow: hidden;
+  position: relative;
   z-index: 2;
 }
 
-.wirr_project_area .pprotfolio4 {
-  position: relative;
+.wirr_project_area .prot_content {
   z-index: 3;
+}
+
+.wirr_project_area .pprotfolio4 {
+  background: #fff;
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 991px) {
