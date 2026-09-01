@@ -736,6 +736,7 @@ p {
 
 .footer-logo {
   width: 15rem;
+  height: auto;
   margin-bottom: 1.25rem;
   filter: invert(1);
 }

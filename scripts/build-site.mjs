@@ -454,7 +454,7 @@ function head({ slug, title, description, schema = [], robots = "index,follow,ma
   <meta name="robots" content="${esc(robots)}">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/optimized/favicon-192.png">
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260901c">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260901d">
 ${preloadHero ? '  <link rel="preload" as="image" href="/assets/images/optimized/hero-960.webp" type="image/webp" fetchpriority="high">\n' : ""}  <meta property="og:type" content="website">
   <meta property="og:site_name" content="${esc(business.name)}">
   <meta property="og:url" content="${canonical}">
