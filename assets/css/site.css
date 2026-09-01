@@ -367,6 +367,12 @@ p {
   object-fit: cover;
 }
 
+.mission-image img {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
