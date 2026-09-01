@@ -701,16 +701,19 @@ p {
   object-fit: cover;
 }
 
-.tag-list {
+.prose .tag-list {
   display: flex;
   margin: 1.25rem 0 1.75rem;
   padding: 0;
+  align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
   list-style: none;
 }
 
-.tag-list li {
+.prose .tag-list li,
+.prose .tag-list li + li {
+  margin-top: 0;
   padding: 0.4rem 0.7rem;
   color: var(--ink-soft);
   background: var(--paper-soft);
