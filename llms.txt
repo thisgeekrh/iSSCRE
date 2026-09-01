@@ -1,45 +1,44 @@
-# The Tyler Simmons Team - South Carolina Real Estate Experts
+# The Tyler Simmons Team | South Carolina Real Estate
 
-> The Tyler Simmons Team helps people buy, sell, relocate, and invest in real estate across South Carolina, with statewide service from Columbia and the Midlands to Florence, Myrtle Beach, York County, and coastal markets.
+> The Tyler Simmons Team at Coldwell Banker Realty helps buyers, sellers, relocating households, military families, and investors across South Carolina.
 
-## What The Team Helps With
+## Primary Contact
 
-- Buying a home anywhere in South Carolina
-- Selling a home with pricing, staging, marketing, and negotiation support
-- Relocation guidance for people moving to or within South Carolina
-- Investment property research and buyer representation
-- Home value consultations and local market insight
+- Website: https://isellscre.com/
+- Phone: 803-999-7522
+- Email: admin@isellscre.com
+- Office: 1711 Gervais St, Columbia, SC 29201
 
-[Visit the website](https://isellscre.com/): Meet the team, review services, search homes, and contact an agent.
+## Services
 
-## Main Site Pages
-
-- [Home](https://isellscre.com/): Overview of the team, services, service areas, testimonials, home search, FAQ, and contact form.
-- [Home Estimate](https://isellscre.com/eval.html): Start a home value conversation.
-- [Lending Partner](https://isellscre.com/lend.html): Mortgage and lending information.
-- [Careers / Team Info](https://isellscre.com/care.html): Information related to team opportunities and support.
-- [Text Us](https://isellscre.com/text.html): Contact and text-message oriented page.
-- [Privacy Policy](https://isellscre.com/privacy.html): Privacy information.
+- [Buy a Home](https://isellscre.com/buying-a-home-sc.html): Understand the South Carolina home buying process with local guidance for financing, home searches, offers, inspections, and closing.
+- [Sell a Home](https://isellscre.com/selling-a-home-sc.html): Prepare, price, market, negotiate, and sell your South Carolina home with guidance from The Tyler Simmons Team at Coldwell Banker Realty.
+- [Relocate to South Carolina](https://isellscre.com/relocation-south-carolina.html): Plan a move to South Carolina with community comparisons, remote home-search support, and local real estate guidance from The Tyler Simmons Team.
+- [Military PCS](https://isellscre.com/military-pcs-fort-jackson.html): Military PCS real estate guidance for service members and families relocating to or from Fort Jackson and the Columbia, South Carolina area.
+- [Investment Properties](https://isellscre.com/real-estate-investing-sc.html): Evaluate South Carolina rental homes, vacation properties, land, and other real estate opportunities with practical buyer representation.
 
 ## Service Areas
 
-The team serves South Carolina statewide, including Columbia, Lexington, Irmo, Chapin, Blythewood, Florence, Myrtle Beach, Rock Hill, Chester, York County, Richland County, Lexington County, Fairfield County, Florence County, Horry County, and the Lake Murray region.
+- [Columbia and Richland County](https://isellscre.com/columbia-sc-real-estate.html)
+- [Lexington and Lake Murray](https://isellscre.com/lexington-lake-murray-real-estate.html)
+- [Blythewood and Fairfield County](https://isellscre.com/blythewood-sc-real-estate.html)
+- [Rock Hill and York County](https://isellscre.com/rock-hill-york-county-real-estate.html)
+- [Myrtle Beach and the Grand Strand](https://isellscre.com/myrtle-beach-real-estate.html)
 
-## Team And Brand
+## Current Team
 
-- Brokerage brand shown on site: Coldwell Banker Realty
-- Public team members shown on site: Tyler Simmons, Ben Battiata, Hollie Stabler, Lisa Simmons
-- Office: 1711 Gervais St, Columbia, SC 29201
+- [Tyler Simmons](https://isellscre.com/agent-tyler-simmons.html): Team Lead and REALTOR®. South Carolina real estate team leader helping buyers, sellers, relocating families, and investors move forward with personal guidance.
+- [Ben Battiata](https://isellscre.com/agent-ben-battiata.html): REALTOR®. Camden native and University of South Carolina graduate serving buyers, sellers, relocating clients, and investors across the Midlands.
+- [Corey Abercrombie](https://isellscre.com/agent-corey-abercrombie.html): REALTOR® and Army National Guard Veteran. Army National Guard veteran with construction, engineering, and real estate investing experience serving the South Carolina Midlands and military families completing PCS moves.
+- [Hollie Stabler](https://isellscre.com/agent-hollie-stabler.html): REALTOR® and Relocation Specialist. Top-producing REALTOR®, certified Relocation Specialist, and Hometown Heroes Agent serving families, first responders, and service members.
+- [Lisa Simmons](https://isellscre.com/agent-lisa-simmons.html): REALTOR®. Experienced public-service professional helping buyers, sellers, relocating clients, and first-time homebuyers in York County, Lancaster, and Myrtle Beach.
+- [Matt Stratton](https://isellscre.com/agent-matt-stratton.html): REALTOR®. Analytical and education-focused REALTOR® guiding buyers, sellers, first-time homebuyers, relocating clients, and military families across the Midlands.
 
-## Contact
+## Public Resources
 
-- Phone: 803-999-7522
-- Email: admin@isellscre.com
-- Contact form: https://isellscre.com/#contact
-
-## AI And Crawler Resources
-
-- [Full AI context](https://isellscre.com/llms-full.txt)
-- [Structured data](https://isellscre.com/schema.json)
+- [Search homes](https://tylersimmonsteam.sites.cbmoxi.com/search/#!/defaultsearch:true)
+- [Request a home value](https://isellscre.com/eval.html)
+- [Preferred lender](https://isellscre.com/lend.html)
+- [Privacy policy](https://isellscre.com/privacy.html)
 - [Sitemap](https://isellscre.com/sitemap.xml)
-- [Robots policy](https://isellscre.com/robots.txt)
+- [Structured data](https://isellscre.com/schema.json)

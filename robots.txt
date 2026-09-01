@@ -1,32 +1,55 @@
 User-agent: *
 Allow: /
 Disallow: /thanks.html
+Disallow: /text.html
 Disallow: /mail.php
+Disallow: /contract.html
+Disallow: /initial.html
+Disallow: /accessibility-enhancements.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /thanks.html
+Disallow: /text.html
+Disallow: /mail.php
+Disallow: /contract.html
+Disallow: /initial.html
+Disallow: /accessibility-enhancements.html
 
 User-agent: GPTBot
 Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
+Disallow: /thanks.html
+Disallow: /text.html
+Disallow: /mail.php
+Disallow: /contract.html
+Disallow: /initial.html
+Disallow: /accessibility-enhancements.html
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /thanks.html
+Disallow: /text.html
+Disallow: /mail.php
+Disallow: /contract.html
+Disallow: /initial.html
+Disallow: /accessibility-enhancements.html
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /thanks.html
+Disallow: /text.html
+Disallow: /mail.php
+Disallow: /contract.html
+Disallow: /initial.html
+Disallow: /accessibility-enhancements.html
 
 User-agent: ClaudeBot
 Allow: /
-
-User-agent: Claude-User
-Allow: /
-
-User-agent: CCBot
-Allow: /
+Disallow: /thanks.html
+Disallow: /text.html
+Disallow: /mail.php
+Disallow: /contract.html
+Disallow: /initial.html
+Disallow: /accessibility-enhancements.html
 
 Sitemap: https://isellscre.com/sitemap.xml
-
-# AI assistant context files
-# Summary: https://isellscre.com/llms.txt
-# Full context: https://isellscre.com/llms-full.txt
-# Structured data: https://isellscre.com/schema.json

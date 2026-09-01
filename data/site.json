@@ -1,0 +1,115 @@
+{
+  "business": {
+    "name": "The Tyler Simmons Team",
+    "legalBrand": "The Tyler Simmons Team at Coldwell Banker Realty",
+    "brokerage": "Coldwell Banker Realty",
+    "url": "https://isellscre.com/",
+    "phone": "+18039997522",
+    "phoneDisplay": "803-999-7522",
+    "email": "admin@isellscre.com",
+    "address": {
+      "street": "1711 Gervais St",
+      "city": "Columbia",
+      "region": "SC",
+      "postalCode": "29201",
+      "country": "US"
+    },
+    "geo": {
+      "latitude": 34.00425447317509,
+      "longitude": -81.02772562318648
+    },
+    "mapsUrl": "https://maps.app.goo.gl/BCTx7mZkuD2F3NtP7",
+    "homeSearchUrl": "https://tylersimmonsteam.sites.cbmoxi.com/search/#!/defaultsearch:true",
+    "homeValueUrl": "https://tylersimmonsteam.sites.cbmoxi.com/sellers",
+    "newsletterUrl": "https://the-simmons-newsletter.beehiiv.com/"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/tylersimmonsteam",
+    "instagram": "https://www.instagram.com/tylersimmonsteam/",
+    "youtube": "https://www.youtube.com/@TylerSimmonsTeam",
+    "tiktok": "https://www.tiktok.com/@thetylersimmonsteam",
+    "threads": "https://www.threads.com/@tylersimmonsteam",
+    "x": "https://x.com/TylerSimmonsRE"
+  },
+  "agents": [
+    {
+      "slug": "tyler-simmons",
+      "name": "Tyler Simmons",
+      "title": "Team Lead and REALTOR®",
+      "image": "tyler-simmons",
+      "areas": ["South Carolina", "Columbia", "The Midlands"],
+      "summary": "South Carolina real estate team leader helping buyers, sellers, relocating families, and investors move forward with personal guidance.",
+      "bio": [
+        "With over seven years of experience in the South Carolina real estate market, Tyler Simmons has helped families and individuals work toward their homeownership and real estate goals. As team leader of The Tyler Simmons Team at Coldwell Banker Realty, he guides a group of agents who share a commitment to attentive service and clear communication.",
+        "Tyler's approach is personal and straightforward. Whether a client is buying a first home, preparing to sell, investing in property, or relocating to South Carolina, he works to make the process understandable and well organized.",
+        "A South Carolina native, Tyler brings firsthand familiarity with the communities, market conditions, and lifestyle considerations that shape a move within the state."
+      ]
+    },
+    {
+      "slug": "ben-battiata",
+      "name": "Ben Battiata",
+      "title": "REALTOR®",
+      "image": "ben-battiata",
+      "areas": ["Columbia", "Camden", "Lexington", "Irmo", "Chapin"],
+      "summary": "Camden native and University of South Carolina graduate serving buyers, sellers, relocating clients, and investors across the Midlands.",
+      "bio": [
+        "As a Camden, South Carolina native and graduate of the University of South Carolina, Ben Battiata brings local knowledge of Columbia and surrounding Midlands communities, including Lexington, Irmo, and Chapin.",
+        "Ben helps first-time homebuyers, sellers, relocating clients, and real estate investors understand their options and navigate each stage of a transaction with clear communication.",
+        "His goal is to provide personalized guidance and a professional experience from the first conversation through closing."
+      ]
+    },
+    {
+      "slug": "corey-abercrombie",
+      "name": "Corey Abercrombie",
+      "title": "REALTOR® and Army National Guard Veteran",
+      "image": "corey-abercrombie",
+      "areas": ["Lexington", "Columbia", "Lake Murray", "West Columbia", "The Midlands"],
+      "summary": "Army National Guard veteran with construction, engineering, and real estate investing experience serving the South Carolina Midlands and military families completing PCS moves.",
+      "bio": [
+        "Corey Abercrombie is a REALTOR® serving Lexington, Columbia, Lake Murray, West Columbia, and communities throughout the South Carolina Midlands. He grew up in West Columbia and now calls Lexington home.",
+        "As a veteran with 12 years of service in the Army National Guard, Corey understands the demands that military service and Permanent Change of Station moves can place on individuals and families. He helps military members, veterans, and their families manage the home buying or selling process with responsive communication and practical guidance.",
+        "Corey's background also includes more than 20 years of experience in construction and engineering, along with over a decade of real estate investing. That experience informs the questions he asks when clients evaluate a property's condition, possible improvements, and long-term considerations.",
+        "Whether a client is buying a first home, preparing for a PCS move, selling a property, relocating to the Midlands, or evaluating an investment, Corey's goal is to make the process clear and straightforward."
+      ]
+    },
+    {
+      "slug": "hollie-stabler",
+      "name": "Hollie Stabler",
+      "title": "REALTOR® and Relocation Specialist",
+      "image": "hollie-stabler",
+      "areas": ["South Carolina", "The Midlands", "Lake communities"],
+      "summary": "Top-producing REALTOR®, certified Relocation Specialist, and Hometown Heroes Agent serving families, first responders, and service members.",
+      "bio": [
+        "Hollie Stabler is a top-producing REALTOR® with The Tyler Simmons Team at Coldwell Banker Realty, serving clients throughout South Carolina, including the Midlands and surrounding communities.",
+        "As a certified Relocation Specialist and Hometown Heroes Agent, Hollie is passionate about helping families, first responders, and service members find a place they are proud to call home.",
+        "Her clients value her clear communication, attention to their goals, and steady guidance throughout a purchase, sale, or relocation."
+      ]
+    },
+    {
+      "slug": "lisa-simmons",
+      "name": "Lisa Simmons",
+      "title": "REALTOR®",
+      "image": "lisa-simmons",
+      "areas": ["Rock Hill", "York County", "Lancaster", "Myrtle Beach"],
+      "summary": "Experienced public-service professional helping buyers, sellers, relocating clients, and first-time homebuyers in York County, Lancaster, and Myrtle Beach.",
+      "bio": [
+        "Lisa Simmons is a dedicated real estate agent serving Rock Hill, Lancaster, Myrtle Beach, and surrounding communities. She provides steady guidance, honest advice, and calm professionalism throughout the buying and selling process.",
+        "Before beginning her real estate career, Lisa spent 28 years overseeing operations in the Family Court Division of York County. That public-service background strengthened the communication, organization, and problem-solving skills she now brings to her real estate clients.",
+        "Lisa works with buyers, sellers, relocating clients, and first-time homebuyers. She aims to create a pressure-free experience where clients feel informed and supported."
+      ]
+    },
+    {
+      "slug": "matt-stratton",
+      "name": "Matt Stratton",
+      "title": "REALTOR®",
+      "image": "matt-stratton",
+      "areas": ["Richland County", "Lexington County", "Fairfield County"],
+      "summary": "Analytical and education-focused REALTOR® guiding buyers, sellers, first-time homebuyers, relocating clients, and military families across the Midlands.",
+      "bio": [
+        "Matt Stratton is a REALTOR® serving Richland, Lexington, and Fairfield counties. His background in software engineering and higher education gives him an analytical approach and a passion for helping clients understand each decision.",
+        "Matt guides buyers, sellers, first-time homebuyers, relocating clients, and military families through the South Carolina real estate process with clarity and care.",
+        "His style is relatable and technology-minded, whether he is explaining market information in plain language or using digital tools to simplify a client's search."
+      ]
+    }
+  ]
+}
