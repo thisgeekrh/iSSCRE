@@ -187,6 +187,7 @@ p {
 .brand img {
   width: 13.5rem;
   height: auto;
+  filter: invert(1);
 }
 
 .nav-toggle {
@@ -733,6 +734,7 @@ p {
 .footer-logo {
   width: 15rem;
   margin-bottom: 1.25rem;
+  filter: invert(1);
 }
 
 .site-footer h2 {
