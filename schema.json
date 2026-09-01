@@ -5,12 +5,13 @@
       "@type": "RealEstateAgent",
       "@id": "https://isellscre.com/#real-estate-agent",
       "name": "The Tyler Simmons Team",
-      "description": "South Carolina real estate team helping buyers, sellers, relocators, and investors across Columbia, Florence, Myrtle Beach, York County, the Midlands, the Pee Dee, the coast, and statewide markets.",
+      "legalName": "The Tyler Simmons Team at Coldwell Banker Realty",
+      "description": "South Carolina real estate team helping buyers, sellers, relocating households, military families, and investors with local guidance.",
       "url": "https://isellscre.com/",
-      "telephone": "+1-803-999-7522",
+      "telephone": "+18039997522",
       "email": "admin@isellscre.com",
-      "image": "https://isellscre.com/assets/images/logo.png",
-      "logo": "https://isellscre.com/assets/images/logo.png",
+      "image": "https://isellscre.com/assets/images/optimized/hero-1920.webp",
+      "logo": "https://isellscre.com/assets/images/optimized/logo-dark.webp",
       "priceRange": "Consultation available",
       "address": {
         "@type": "PostalAddress",
@@ -25,35 +26,76 @@
         "latitude": 34.00425447317509,
         "longitude": -81.02772562318648
       },
+      "hasMap": "https://maps.app.goo.gl/BCTx7mZkuD2F3NtP7",
       "parentOrganization": {
         "@type": "Organization",
         "name": "Coldwell Banker Realty"
       },
       "areaServed": [
-        { "@type": "State", "name": "South Carolina" },
-        { "@type": "City", "name": "Columbia" },
-        { "@type": "City", "name": "Florence" },
-        { "@type": "City", "name": "Myrtle Beach" },
-        { "@type": "City", "name": "Rock Hill" },
-        { "@type": "AdministrativeArea", "name": "Richland County" },
-        { "@type": "AdministrativeArea", "name": "Lexington County" },
-        { "@type": "AdministrativeArea", "name": "Fairfield County" },
-        { "@type": "AdministrativeArea", "name": "Florence County" },
-        { "@type": "AdministrativeArea", "name": "Horry County" },
-        { "@type": "AdministrativeArea", "name": "York County" }
-      ],
-      "makesOffer": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home buying representation" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home selling and listing strategy" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Relocation assistance" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Investment property guidance" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home value consultation" } }
+        {
+          "@type": "State",
+          "name": "South Carolina"
+        },
+        {
+          "@type": "City",
+          "name": "Columbia"
+        },
+        {
+          "@type": "City",
+          "name": "Lexington"
+        },
+        {
+          "@type": "City",
+          "name": "Blythewood"
+        },
+        {
+          "@type": "City",
+          "name": "Rock Hill"
+        },
+        {
+          "@type": "City",
+          "name": "Myrtle Beach"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Richland County"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Lexington County"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Fairfield County"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "York County"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Horry County"
+        }
       ],
       "employee": [
-        { "@type": "Person", "name": "Tyler Simmons", "jobTitle": "Realtor" },
-        { "@type": "Person", "name": "Ben Battiata", "jobTitle": "Realtor" },
-        { "@type": "Person", "name": "Hollie Stabler", "jobTitle": "Realtor" },
-        { "@type": "Person", "name": "Lisa Simmons", "jobTitle": "Realtor" }
+        {
+          "@id": "https://isellscre.com/agent-tyler-simmons.html#agent"
+        },
+        {
+          "@id": "https://isellscre.com/agent-ben-battiata.html#agent"
+        },
+        {
+          "@id": "https://isellscre.com/agent-corey-abercrombie.html#agent"
+        },
+        {
+          "@id": "https://isellscre.com/agent-hollie-stabler.html#agent"
+        },
+        {
+          "@id": "https://isellscre.com/agent-lisa-simmons.html#agent"
+        },
+        {
+          "@id": "https://isellscre.com/agent-matt-stratton.html#agent"
+        }
       ],
       "sameAs": [
         "https://www.facebook.com/tylersimmonsteam",
@@ -69,74 +111,76 @@
       "@id": "https://isellscre.com/#website",
       "url": "https://isellscre.com/",
       "name": "The Tyler Simmons Team",
-      "description": "South Carolina real estate services for buying, selling, relocation, home valuation, and investment properties.",
-      "publisher": { "@id": "https://isellscre.com/#real-estate-agent" },
+      "publisher": {
+        "@id": "https://isellscre.com/#real-estate-agent"
+      },
       "inLanguage": "en-US"
     },
     {
-      "@type": "Place",
-      "@id": "https://isellscre.com/#office",
-      "name": "The Tyler Simmons Team Office",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1711 Gervais St",
-        "addressLocality": "Columbia",
-        "addressRegion": "SC",
-        "postalCode": "29201",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 34.00425447317509,
-        "longitude": -81.02772562318648
-      },
-      "hasMap": "https://www.google.com/maps/place/1711+Gervais+St,+Columbia,+SC+29201"
+      "@type": "Person",
+      "@id": "https://isellscre.com/agent-tyler-simmons.html#agent",
+      "name": "Tyler Simmons",
+      "jobTitle": "Team Lead and REALTOR®",
+      "url": "https://isellscre.com/agent-tyler-simmons.html",
+      "image": "https://isellscre.com/assets/images/optimized/tyler-simmons-720.webp",
+      "worksFor": {
+        "@id": "https://isellscre.com/#real-estate-agent"
+      }
     },
     {
-      "@type": "FAQPage",
-      "@id": "https://isellscre.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What areas do you serve in South Carolina?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The Tyler Simmons Team serves the entire state of South Carolina, including Columbia, Florence, Myrtle Beach, York County, Richland County, Lexington County, Fairfield County, Florence County, Horry County, and surrounding communities."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you help first-time homebuyers?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. The team guides first-time homebuyers through pre-approval, home search, offers, inspections, closing, and local neighborhood decisions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do you determine the best price for my home?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The team uses local market analysis, comparable sales, property condition, neighborhood demand, and pricing strategy to help sellers position their homes competitively."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you help with investment properties?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. The Tyler Simmons Team helps clients evaluate rental properties, vacation homes, land, and other real estate investment opportunities across South Carolina."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can clients contact the team?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Call 803-999-7522, email admin@isellscre.com, or use the contact form at https://isellscre.com/#contact."
-          }
-        }
-      ]
+      "@type": "Person",
+      "@id": "https://isellscre.com/agent-ben-battiata.html#agent",
+      "name": "Ben Battiata",
+      "jobTitle": "REALTOR®",
+      "url": "https://isellscre.com/agent-ben-battiata.html",
+      "image": "https://isellscre.com/assets/images/optimized/ben-battiata-720.webp",
+      "worksFor": {
+        "@id": "https://isellscre.com/#real-estate-agent"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://isellscre.com/agent-corey-abercrombie.html#agent",
+      "name": "Corey Abercrombie",
+      "jobTitle": "REALTOR® and Army National Guard Veteran",
+      "url": "https://isellscre.com/agent-corey-abercrombie.html",
+      "image": "https://isellscre.com/assets/images/optimized/corey-abercrombie-720.webp",
+      "worksFor": {
+        "@id": "https://isellscre.com/#real-estate-agent"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://isellscre.com/agent-hollie-stabler.html#agent",
+      "name": "Hollie Stabler",
+      "jobTitle": "REALTOR® and Relocation Specialist",
+      "url": "https://isellscre.com/agent-hollie-stabler.html",
+      "image": "https://isellscre.com/assets/images/optimized/hollie-stabler-720.webp",
+      "worksFor": {
+        "@id": "https://isellscre.com/#real-estate-agent"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://isellscre.com/agent-lisa-simmons.html#agent",
+      "name": "Lisa Simmons",
+      "jobTitle": "REALTOR®",
+      "url": "https://isellscre.com/agent-lisa-simmons.html",
+      "image": "https://isellscre.com/assets/images/optimized/lisa-simmons-720.webp",
+      "worksFor": {
+        "@id": "https://isellscre.com/#real-estate-agent"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://isellscre.com/agent-matt-stratton.html#agent",
+      "name": "Matt Stratton",
+      "jobTitle": "REALTOR®",
+      "url": "https://isellscre.com/agent-matt-stratton.html",
+      "image": "https://isellscre.com/assets/images/optimized/matt-stratton-720.webp",
+      "worksFor": {
+        "@id": "https://isellscre.com/#real-estate-agent"
+      }
     }
   ]
 }
