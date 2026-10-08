@@ -766,12 +766,12 @@ const legacyPages = {
   }),
   "lend.html": simplePage({
     slug: "lend.html",
-    title: "Preferred Mortgage Lender | CrossCountry Mortgage",
-    description: "Learn about the preferred mortgage resource connected with The Tyler Simmons Team and visit the lender's verified profile for current information.",
+    title: "Preferred Mortgage Lender | Lexington Mortgage Center",
+    description: "Meet Eric Moss at Lexington Mortgage Center, the preferred mortgage resource for The Tyler Simmons Team, and start your mortgage application.",
     eyebrow: "Financing resource",
     h1: "Meet Our Preferred Mortgage Lender",
     lead: "A qualified lender can help you understand loan options, estimated costs, documentation, and a realistic purchasing budget.",
-    content: `<div class="split"><div class="split-image"><img src="/assets/images/Kolin.png" width="500" height="500" loading="lazy" alt="Kolin Causey with CrossCountry Mortgage"></div><div><h2>Kolin Causey</h2><p><strong>CrossCountry Mortgage</strong></p><p>Kolin is the team's preferred mortgage resource. For current licensing, contact information, loan options, and application access, use his verified CrossCountry Mortgage profile.</p><p>Loan approval, rates, programs, and terms are determined by the lender. The Tyler Simmons Team does not make lending decisions.</p><a class="button" href="https://crosscountrymortgage.com/myrtle-beach-sc-5091/kolin-causey/" target="_blank" rel="noopener">Visit Kolin's official profile</a></div></div>`
+    content: `<div class="split"><div class="split-image"><img src="/assets/images/eric-moss.webp" width="780" height="816" loading="lazy" alt="Eric Moss with Lexington Mortgage Center"></div><div><h2>Eric Moss</h2><p><strong>Lexington Mortgage Center</strong></p><p>Eric Moss at Lexington Mortgage Center is the team's preferred mortgage resource. Use the link below to start your mortgage application with Eric.</p><p>Loan approval, rates, programs, and terms are determined by the lender. The Tyler Simmons Team does not make lending decisions.</p><a class="button" href="http://ericmoss.zipforhome.com/" target="_blank" rel="noopener">Apply with Eric Moss</a></div></div>`
   }),
   "care.html": simplePage({
     slug: "care.html",
