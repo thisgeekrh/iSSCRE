@@ -606,6 +606,42 @@ p {
   font-size: 0.9rem;
 }
 
+.post-feature {
+  margin-top: calc(-1 * clamp(2rem, 5vw, 3.5rem));
+  position: relative;
+}
+
+.post-feature img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.post-card .post-thumb {
+  display: block;
+  margin: -1.7rem -1.7rem 1.1rem;
+  overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.post-card .post-thumb img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 40 / 21;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-thumb img {
+  transform: scale(1.03);
+}
+
+.post-category {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
 .post-card-title {
   margin: 0.5rem 0 0.75rem;
   font-size: 1.3rem;
