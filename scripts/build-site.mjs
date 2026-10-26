@@ -445,7 +445,8 @@ function websiteSchema() {
   };
 }
 
-function head({ slug, title, description, schema = [], robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1", preloadHero = false }) {
+function head({ slug, title, description, schema = [], robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1", preloadHero = false, image = null }) {
+  const ogImage = image ? { url: `${business.url}${image.path}`, width: image.width, height: image.height } : { url: `${business.url}assets/images/optimized/hero-1920.webp`, width: 1920, height: 950 };
   const canonical = pageUrl(slug);
   const graph = [businessSchema(), websiteSchema(), ...schema];
   return `
@@ -457,19 +458,19 @@ function head({ slug, title, description, schema = [], robots = "index,follow,ma
   <meta name="robots" content="${esc(robots)}">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/optimized/favicon-192.png">
-    <link rel="stylesheet" href="/assets/css/site.css?v=20261025a">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261025b">
 ${preloadHero ? '  <link rel="preload" as="image" href="/assets/images/optimized/hero-960.webp" type="image/webp" fetchpriority="high">\n' : ""}  <meta property="og:type" content="website">
   <meta property="og:site_name" content="${esc(business.name)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
-  <meta property="og:image" content="${business.url}assets/images/optimized/hero-1920.webp">
-  <meta property="og:image:width" content="1920">
-  <meta property="og:image:height" content="950">
+  <meta property="og:image" content="${ogImage.url}">
+  <meta property="og:image:width" content="${ogImage.width}">
+  <meta property="og:image:height" content="${ogImage.height}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(description)}">
-  <meta name="twitter:image" content="${business.url}assets/images/optimized/hero-1920.webp">
+  <meta name="twitter:image" content="${ogImage.url}">
   <meta name="geo.region" content="US-SC">
   <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DKL1FRFGF"></script>
@@ -530,7 +531,7 @@ function footer() {
             <li><a href="${social.instagram}" target="_blank" rel="noopener">Instagram</a></li>
             <li><a href="${social.youtube}" target="_blank" rel="noopener">YouTube</a></li>
             <li><a href="${social.tiktok}" target="_blank" rel="noopener">TikTok</a></li>
-            <li><a href="/blog/">Blog and relocation guides</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="${business.newsletterUrl}" target="_blank" rel="noopener">Newsletter</a></li>
           </ul>
         </div>
@@ -544,10 +545,10 @@ function footer() {
   <script src="/assets/js/site.js" defer></script>`;
 }
 
-function shell({ slug, title, description, body, current = "", schema = [], robots, preloadHero = false }) {
+function shell({ slug, title, description, body, current = "", schema = [], robots, preloadHero = false, image = null }) {
   return `<!doctype html>
 <html lang="en-US">
-<head>${head({ slug, title, description, schema, robots, preloadHero })}
+<head>${head({ slug, title, description, schema, robots, preloadHero, image })}
 </head>
 <body>
   ${header(current)}
@@ -820,6 +821,9 @@ const legacyPages = {
 
 const relocationCta = `<div class="cta"><p class="eyebrow">Planning a move?</p><h2>Get a South Carolina move plan from a local team</h2><p>Tell us where you are moving from, where you are looking, and your timeline. We will match you with the agent who knows that area and help you plan the search from wherever you are now.</p><div class="button-row"><a class="button button-light" href="/${landingSlug}">Start your move plan</a><a class="button button-outline-light" href="tel:${business.phone}">Call ${business.phoneDisplay}</a></div></div>`;
 
+const postImagePath = (post) => `assets/images/blog/${post.image}.webp`;
+const postThumb = (post) => `<a class="post-thumb" href="/${post.slug}" tabindex="-1" aria-hidden="true"><img src="/${postImagePath(post)}" width="1600" height="840" loading="lazy" alt=""></a>`;
+
 function blogPost(post) {
   const url = pageUrl(post.slug);
   const article = {
@@ -830,7 +834,8 @@ function blogPost(post) {
     url,
     datePublished: post.date,
     dateModified: post.date,
-    image: `${business.url}assets/images/optimized/hero-1920.webp`,
+    image: `${business.url}${postImagePath(post)}`,
+    articleSection: post.category,
     author: { "@id": `${business.url}#real-estate-agent` },
     publisher: { "@id": `${business.url}#real-estate-agent` },
     isPartOf: { "@id": `${pageUrl(blogSlug)}#blog` },
@@ -844,17 +849,19 @@ function blogPost(post) {
       { "@type": "ListItem", position: 3, name: post.label, item: url }
     ]
   };
-  const related = posts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const others = posts.filter((item) => item.slug !== post.slug);
+  const related = [...others.filter((item) => item.category === post.category), ...others.filter((item) => item.category !== post.category)].slice(0, 3);
   const body = `<main id="main-content">
-    <section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a> / ${esc(post.label)}</p><p class="eyebrow">Relocation guide</p><h1>${esc(post.h1)}</h1><p class="lead">${esc(post.lead)}</p><p class="post-meta"><time datetime="${post.date}">${esc(post.dateDisplay)}</time> · ${post.readMinutes} min read · ${esc(business.name)}</p></div></section>
+    <section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a> / ${esc(post.label)}</p><p class="eyebrow">${esc(post.category)}</p><h1>${esc(post.h1)}</h1><p class="lead">${esc(post.lead)}</p><p class="post-meta"><time datetime="${post.date}">${esc(post.dateDisplay)}</time> · ${post.readMinutes} min read · ${esc(business.name)}</p></div></section>
+    <div class="container post-feature"><img src="/${postImagePath(post)}" width="1600" height="840" alt="${esc(post.imageAlt)}" fetchpriority="high"></div>
     <section class="section"><div class="container article-layout"><article class="prose">
       ${post.sections.map((section) => `<section><h2>${esc(section.h2)}</h2>${section.html}</section>`).join("\n")}
       <section><h2>Talk with a local agent</h2><p>${esc(post.agentNote)} Tell us about your move and we will help you build a plan, whether you are ready to tour this month or just starting to research.</p><div class="button-row"><a class="button" href="/${landingSlug}">Start your move plan</a><a class="button button-secondary" href="tel:${business.phone}">Call ${business.phoneDisplay}</a></div></section>
       <section class="post-sources"><h2>Sources</h2><ul>${post.sources.map((source) => `<li><a href="${source.url}" target="_blank" rel="noopener">${esc(source.title)}</a></li>`).join("")}</ul><p class="form-note">This guide is general information, not tax, legal, or lending advice. Tax rates and rules change, so confirm details with a qualified professional.</p></section>
     </article><aside class="sidebar-card"><p class="eyebrow">Moving to South Carolina?</p><h2>Get a local plan</h2><p>Share where you are moving from and your timeline. We will match you with the right agent.</p><a class="button" href="/${landingSlug}">Start your move plan</a><a class="button button-secondary" href="${business.homeSearchUrl}">Search homes</a></aside></div></section>
-    ${related.length ? `<section class="section compact section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Keep reading</p><h2>More relocation guides</h2></div><div class="card-grid">${related.map((item) => `<article class="card"><h3>${esc(item.label)}</h3><p>${esc(item.description)}</p><a class="card-link" href="/${item.slug}">Read the guide</a></article>`).join("")}</div></div></section>` : ""}
+    ${related.length ? `<section class="section compact section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Keep reading</p><h2>More from our blog</h2></div><div class="card-grid">${related.map((item) => `<article class="card post-card">${postThumb(item)}<p class="post-meta">${esc(item.category)}</p><h3>${esc(item.label)}</h3><p>${esc(item.description)}</p><a class="card-link" href="/${item.slug}">Read more</a></article>`).join("")}</div></div></section>` : ""}
   </main>`;
-  return shell({ slug: post.slug, title: post.title, description: post.description, body, current: "blog", schema: [article, breadcrumb] });
+  return shell({ slug: post.slug, title: post.title, description: post.description, body, current: "blog", schema: [article, breadcrumb], image: { path: postImagePath(post), width: 1600, height: 840 } });
 }
 
 function blogIndex() {
@@ -864,7 +871,7 @@ function blogIndex() {
     "@id": `${url}#blog`,
     name: `${business.name} Blog`,
     url,
-    description: "Relocation guides and South Carolina real estate articles from The Tyler Simmons Team.",
+    description: "South Carolina real estate news, buying and selling advice, and relocation guides from The Tyler Simmons Team.",
     publisher: { "@id": `${business.url}#real-estate-agent` },
     blogPost: posts.map((post) => ({ "@id": `${pageUrl(post.slug)}#article` })),
     inLanguage: "en-US"
@@ -877,14 +884,14 @@ function blogIndex() {
     ]
   };
   const body = `<main id="main-content">
-    <section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Home</a> / Blog</p><p class="eyebrow">Blog</p><h1>South Carolina Real Estate and Relocation Guides</h1><p class="lead">Practical guides for moving to South Carolina and buying a home here, written by our local team.</p></div></section>
+    <section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Home</a> / Blog</p><p class="eyebrow">Blog</p><h1>The Tyler Simmons Team Blog</h1><p class="lead">South Carolina real estate advice, market updates, and relocation guides from our local team.</p></div></section>
     <section class="section"><div class="container"><div class="card-grid post-grid">
-      ${posts.map((post) => `<article class="card"><p class="post-meta"><time datetime="${post.date}">${esc(post.dateDisplay)}</time> · ${post.readMinutes} min read</p><h2 class="post-card-title"><a href="/${post.slug}">${esc(post.h1)}</a></h2><p>${esc(post.description)}</p><a class="card-link" href="/${post.slug}" aria-hidden="true" tabindex="-1">Read the guide</a></article>`).join("\n")}
+      ${posts.map((post) => `<article class="card post-card">${postThumb(post)}<p class="post-meta"><span class="post-category">${esc(post.category)}</span> · <time datetime="${post.date}">${esc(post.dateDisplay)}</time> · ${post.readMinutes} min read</p><h2 class="post-card-title"><a href="/${post.slug}">${esc(post.h1)}</a></h2><p>${esc(post.description)}</p><a class="card-link" href="/${post.slug}" aria-hidden="true" tabindex="-1">Read more</a></article>`).join("\n")}
     </div></div></section>
-    <section class="section compact section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Newsletter</p><h2>Get new guides by email</h2><p class="lead">Subscribe to The Simmons Newsletter for South Carolina market updates and new articles.</p></div><a class="button" href="${business.newsletterUrl}" target="_blank" rel="noopener">Subscribe to the newsletter</a></div></section>
+    <section class="section compact section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Newsletter</p><h2>Get new posts by email</h2><p class="lead">Subscribe to The Simmons Newsletter for South Carolina market updates and new articles.</p></div><a class="button" href="${business.newsletterUrl}" target="_blank" rel="noopener">Subscribe to the newsletter</a></div></section>
     <section class="section"><div class="container">${relocationCta}</div></section>
   </main>`;
-  return shell({ slug: blogSlug, title: "Blog | South Carolina Relocation Guides | Tyler Simmons Team", description: "South Carolina relocation guides and real estate articles covering taxes, communities, commutes, and buying a home from out of state.", body, current: "blog", schema: [blog, breadcrumb] });
+  return shell({ slug: blogSlug, title: "Blog | South Carolina Real Estate | The Tyler Simmons Team", description: "South Carolina real estate advice, market updates, buying and selling tips, and relocation guides from The Tyler Simmons Team at Coldwell Banker Realty.", body, current: "blog", schema: [blog, breadcrumb], image: posts[0] ? { path: postImagePath(posts[0]), width: 1600, height: 840 } : null });
 }
 
 function landingPage() {
@@ -960,7 +967,7 @@ function generateSupportFiles() {
   const robots = `${["*", "OAI-SearchBot", "GPTBot", "Google-Extended", "PerplexityBot", "ClaudeBot"].map(agentRules).join("\n\n")}\n\nSitemap: ${business.url}sitemap.xml\n`;
   fs.writeFileSync(path.join(root, "robots.txt"), robots);
 
-  const llms = `# ${business.name} | South Carolina Real Estate\n\n> ${business.name} at ${business.brokerage} helps buyers, sellers, relocating households, military families, and investors across South Carolina.\n\n## Primary Contact\n\n- Website: ${business.url}\n- Phone: ${business.phoneDisplay}\n- Email: ${business.email}\n- Office: ${business.address.street}, ${business.address.city}, ${business.address.region} ${business.address.postalCode}\n\n## Services\n\n${services.map((item) => `- [${item.label}](${business.url}${item.slug}): ${item.description}`).join("\n")}\n\n## Service Areas\n\n${areas.map((item) => `- [${item.label}](${business.url}${item.slug})`).join("\n")}\n\n## Relocation Guides\n\n- [Blog](${pageUrl(blogSlug)})\n${posts.map((post) => `- [${post.label}](${pageUrl(post.slug)}): ${post.description}`).join("\n")}\n\n## Current Team\n\n${agents.map((agent) => `- [${agent.name}](${business.url}agent-${agent.slug}.html): ${agent.title}. ${agent.summary}`).join("\n")}\n\n## Public Resources\n\n- [Search homes](${business.homeSearchUrl})\n- [Request a home value](${business.url}eval.html)\n- [Preferred lender](${business.url}lend.html)\n- [Privacy policy](${business.url}privacy.html)\n- [Sitemap](${business.url}sitemap.xml)\n- [Structured data](${business.url}schema.json)\n`;
+  const llms = `# ${business.name} | South Carolina Real Estate\n\n> ${business.name} at ${business.brokerage} helps buyers, sellers, relocating households, military families, and investors across South Carolina.\n\n## Primary Contact\n\n- Website: ${business.url}\n- Phone: ${business.phoneDisplay}\n- Email: ${business.email}\n- Office: ${business.address.street}, ${business.address.city}, ${business.address.region} ${business.address.postalCode}\n\n## Services\n\n${services.map((item) => `- [${item.label}](${business.url}${item.slug}): ${item.description}`).join("\n")}\n\n## Service Areas\n\n${areas.map((item) => `- [${item.label}](${business.url}${item.slug})`).join("\n")}\n\n## Blog\n\n- [Blog](${pageUrl(blogSlug)})\n${posts.map((post) => `- [${post.label}](${pageUrl(post.slug)}): ${post.description}`).join("\n")}\n\n## Current Team\n\n${agents.map((agent) => `- [${agent.name}](${business.url}agent-${agent.slug}.html): ${agent.title}. ${agent.summary}`).join("\n")}\n\n## Public Resources\n\n- [Search homes](${business.homeSearchUrl})\n- [Request a home value](${business.url}eval.html)\n- [Preferred lender](${business.url}lend.html)\n- [Privacy policy](${business.url}privacy.html)\n- [Sitemap](${business.url}sitemap.xml)\n- [Structured data](${business.url}schema.json)\n`;
   fs.writeFileSync(path.join(root, "llms.txt"), llms);
 
   const full = `${llms}\n## Business Identity\n\n${business.name} is a South Carolina real estate team associated with ${business.brokerage}. The team maintains its primary public website at ${business.url}. The six current agents shown on the website are ${agents.map((agent) => agent.name).join(", ")}.\n\n## Client Needs\n\nThe team serves first-time and repeat buyers, home sellers, relocating households, military families completing PCS moves, and clients evaluating real estate investments. Real estate guidance does not replace legal, tax, lending, appraisal, inspection, insurance, construction, or financial advice.\n\n## Geographic Focus\n\nThe team's published areas include Columbia, Richland County, Lexington, West Columbia, Lake Murray, Blythewood, Fairfield County, Rock Hill, York County, Lancaster, Myrtle Beach, Horry County, and other South Carolina communities served by its agents.\n\n## Contact Guidance\n\nFor current listings, market information, property-specific advice, availability, or service-area confirmation, contact the team at ${business.phoneDisplay} or ${business.email}. Do not infer guarantees about property values, investment returns, financing approval, sale timing, or transaction outcomes.\n`;
