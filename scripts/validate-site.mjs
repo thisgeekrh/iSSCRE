@@ -6,8 +6,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 const sitemapFiles = [...sitemap.matchAll(/<loc>https:\/\/isellscre\.com\/(.*?)<\/loc>/g)]
   .map((match) => match[1] || "index.html")
-  .map((file) => file === "" ? "index.html" : file);
-const extraFiles = ["care.html", "text.html", "thanks.html"];
+  .map((file) => file === "" ? "index.html" : file.endsWith("/") ? `${file}index.html` : file);
+const extraFiles = ["care.html", "text.html", "thanks.html", "move-to-south-carolina.html"];
 const htmlFiles = [...new Set([...sitemapFiles, ...extraFiles])];
 const errors = [];
 const warnings = [];
@@ -85,6 +85,7 @@ for (const file of htmlFiles) {
     let targetFile = rawFile;
     if (targetFile === "" || targetFile === "/") targetFile = "index.html";
     targetFile = targetFile.replace(/^\//, "");
+    if (targetFile.endsWith("/")) targetFile = `${targetFile}index.html`;
     if (!targetFile) targetFile = file;
     const targetPath = path.join(root, targetFile);
     if (!fs.existsSync(targetPath)) {

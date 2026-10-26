@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { posts } from "./blog-posts.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const site = JSON.parse(fs.readFileSync(path.join(root, "data/site.json"), "utf8"));
@@ -13,7 +14,9 @@ const esc = (value = "") => String(value)
   .replaceAll(">", "&gt;")
   .replaceAll('"', "&quot;");
 
-const pageUrl = (slug) => slug === "index.html" ? business.url : `${business.url}${slug}`;
+const pageUrl = (slug) => slug === "index.html" ? business.url : `${business.url}${slug.replace(/(^|\/)index\.html$/, "$1")}`;
+const blogSlug = "blog/index.html";
+const landingSlug = "move-to-south-carolina.html";
 
 const services = [
   {
@@ -54,6 +57,40 @@ const services = [
     ]
   },
   {
+    slug: "relocation-south-carolina.html",
+    label: "Relocate to South Carolina",
+    title: "Relocating to South Carolina | Local Real Estate Guidance",
+    description: "Plan a move to South Carolina with community comparisons, remote home-search support, and local real estate guidance from The Tyler Simmons Team.",
+    eyebrow: "Relocation",
+    h1: "Relocate to South Carolina With Local Guidance",
+    lead: "Whether you are moving for work, family, military service, or a lifestyle change, we help you compare communities and manage a home search from near or far.",
+    sections: [
+      {
+        h2: "Choose a community before choosing a house",
+        paragraphs: [
+          "A successful relocation begins with the daily-life questions. Consider work locations, commute tolerance, preferred pace, access to recreation, housing style, and the people or places you expect to visit most often.",
+          "Our team can help you compare options in Columbia and the Midlands, Lexington and Lake Murray, York County, Myrtle Beach, and other South Carolina communities served by our agents."
+        ]
+      },
+      {
+        h2: "Support for long-distance buyers",
+        list: [
+          "Initial planning calls focused on timing, budget, and location priorities.",
+          "Remote property review and video tour coordination when appropriate.",
+          "Local context about housing patterns and travel between communities.",
+          "Coordination with lenders, inspectors, attorneys, and other transaction professionals.",
+          "A clear schedule from accepted offer through closing."
+        ]
+      },
+      {
+        h2: "Selling before or after a move",
+        paragraphs: [
+          "Relocation often involves both a purchase and a sale. We help clients think through timing, temporary housing, property preparation, and the practical relationship between two transactions."
+        ]
+      }
+    ]
+  },
+  {
     slug: "selling-a-home-sc.html",
     label: "Sell a Home",
     title: "Sell Your South Carolina Home | Pricing and Marketing Guidance",
@@ -84,40 +121,6 @@ const services = [
         h2: "Request a home value conversation",
         paragraphs: [
           "If you are considering a move, start with a property-specific conversation rather than relying only on an automated estimate. We can discuss comparable sales, likely buyer expectations, and steps that may strengthen the presentation of your home."
-        ]
-      }
-    ]
-  },
-  {
-    slug: "relocation-south-carolina.html",
-    label: "Relocate to South Carolina",
-    title: "Relocating to South Carolina | Local Real Estate Guidance",
-    description: "Plan a move to South Carolina with community comparisons, remote home-search support, and local real estate guidance from The Tyler Simmons Team.",
-    eyebrow: "Relocation",
-    h1: "Relocate to South Carolina With Local Guidance",
-    lead: "Whether you are moving for work, family, military service, or a lifestyle change, we help you compare communities and manage a home search from near or far.",
-    sections: [
-      {
-        h2: "Choose a community before choosing a house",
-        paragraphs: [
-          "A successful relocation begins with the daily-life questions. Consider work locations, commute tolerance, preferred pace, access to recreation, housing style, and the people or places you expect to visit most often.",
-          "Our team can help you compare options in Columbia and the Midlands, Lexington and Lake Murray, York County, Myrtle Beach, and other South Carolina communities served by our agents."
-        ]
-      },
-      {
-        h2: "Support for long-distance buyers",
-        list: [
-          "Initial planning calls focused on timing, budget, and location priorities.",
-          "Remote property review and video tour coordination when appropriate.",
-          "Local context about housing patterns and travel between communities.",
-          "Coordination with lenders, inspectors, attorneys, and other transaction professionals.",
-          "A clear schedule from accepted offer through closing."
-        ]
-      },
-      {
-        h2: "Selling before or after a move",
-        paragraphs: [
-          "Relocation often involves both a purchase and a sale. We help clients think through timing, temporary housing, property preparation, and the practical relationship between two transactions."
         ]
       }
     ]
@@ -454,7 +457,7 @@ function head({ slug, title, description, schema = [], robots = "index,follow,ma
   <meta name="robots" content="${esc(robots)}">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/optimized/favicon-192.png">
-    <link rel="stylesheet" href="/assets/css/site.css?v=20260901e">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261025a">
 ${preloadHero ? '  <link rel="preload" as="image" href="/assets/images/optimized/hero-960.webp" type="image/webp" fetchpriority="high">\n' : ""}  <meta property="og:type" content="website">
   <meta property="og:site_name" content="${esc(business.name)}">
   <meta property="og:url" content="${canonical}">
@@ -495,7 +498,7 @@ function header(current = "") {
           ${item("/relocation-south-carolina.html", "Relocate", "relocate")}
           ${item("/#areas", "Areas", "areas")}
           ${item("/#team", "Team", "team")}
-          ${item(business.newsletterUrl, "Blog", "blog", ' target="_blank" rel="noopener"')}
+          ${item("/blog/", "Blog", "blog")}
           ${item("/#contact", "Contact", "contact", ' class="nav-cta"')}
         </ul>
       </nav>
@@ -527,6 +530,7 @@ function footer() {
             <li><a href="${social.instagram}" target="_blank" rel="noopener">Instagram</a></li>
             <li><a href="${social.youtube}" target="_blank" rel="noopener">YouTube</a></li>
             <li><a href="${social.tiktok}" target="_blank" rel="noopener">TikTok</a></li>
+            <li><a href="/blog/">Blog and relocation guides</a></li>
             <li><a href="${business.newsletterUrl}" target="_blank" rel="noopener">Newsletter</a></li>
           </ul>
         </div>
@@ -592,10 +596,10 @@ function homepage() {
         <div class="hero-content">
           <p class="eyebrow">The Tyler Simmons Team at Coldwell Banker Realty</p>
           <h1>South Carolina Real Estate, Guided by Local Experts</h1>
-          <p class="lead">Buy, sell, relocate, or evaluate an investment with a team serving Columbia, Lexington, Lake Murray, Blythewood, York County, Myrtle Beach, and communities across South Carolina.</p>
+          <p class="lead">Moving to South Carolina or buying your next home here? Our team helps buyers and relocating families across Columbia, Lexington, Lake Murray, Blythewood, York County, Myrtle Beach, and the rest of the state.</p>
           <div class="button-row">
             <a class="button button-light" href="${business.homeSearchUrl}">Search South Carolina homes</a>
-            <a class="button button-outline-light" href="#contact">Talk with our team</a>
+            <a class="button button-outline-light" href="/relocation-south-carolina.html">Plan a move to South Carolina</a>
           </div>
         </div>
       </div>
@@ -627,7 +631,7 @@ function homepage() {
         <div class="section-heading"><p class="eyebrow">How we help</p><h2>Real estate guidance for your next move</h2><p class="lead">Choose the service that matches your plans and learn what to expect before making a decision.</p></div>
         <div class="card-grid">
           ${services.map((service, index) => `<article class="card"><span class="service-number">${String(index + 1).padStart(2, "0")}</span><h3>${esc(service.label)}</h3><p>${esc(service.description)}</p><a class="card-link" href="/${service.slug}">Learn more</a></article>`).join("\n")}
-          <article class="card"><span class="service-number">06</span><h3>Request a Home Value</h3><p>Start with a property-specific conversation and current local information.</p><a class="card-link" href="/eval.html">Explore seller options</a></article>
+          <article class="card"><span class="service-number">06</span><h3>Relocation Guides</h3><p>Moving from another state? Read our guides on taxes, communities, commutes, and buying a South Carolina home from out of state.</p><a class="card-link" href="/blog/">Read the guides</a></article>
         </div>
       </div>
     </section>
@@ -814,6 +818,122 @@ const legacyPages = {
   })
 };
 
+const relocationCta = `<div class="cta"><p class="eyebrow">Planning a move?</p><h2>Get a South Carolina move plan from a local team</h2><p>Tell us where you are moving from, where you are looking, and your timeline. We will match you with the agent who knows that area and help you plan the search from wherever you are now.</p><div class="button-row"><a class="button button-light" href="/${landingSlug}">Start your move plan</a><a class="button button-outline-light" href="tel:${business.phone}">Call ${business.phoneDisplay}</a></div></div>`;
+
+function blogPost(post) {
+  const url = pageUrl(post.slug);
+  const article = {
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    headline: post.h1,
+    description: post.description,
+    url,
+    datePublished: post.date,
+    dateModified: post.date,
+    image: `${business.url}assets/images/optimized/hero-1920.webp`,
+    author: { "@id": `${business.url}#real-estate-agent` },
+    publisher: { "@id": `${business.url}#real-estate-agent` },
+    isPartOf: { "@id": `${pageUrl(blogSlug)}#blog` },
+    inLanguage: "en-US"
+  };
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: business.url },
+      { "@type": "ListItem", position: 2, name: "Blog", item: pageUrl(blogSlug) },
+      { "@type": "ListItem", position: 3, name: post.label, item: url }
+    ]
+  };
+  const related = posts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const body = `<main id="main-content">
+    <section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a> / ${esc(post.label)}</p><p class="eyebrow">Relocation guide</p><h1>${esc(post.h1)}</h1><p class="lead">${esc(post.lead)}</p><p class="post-meta"><time datetime="${post.date}">${esc(post.dateDisplay)}</time> · ${post.readMinutes} min read · ${esc(business.name)}</p></div></section>
+    <section class="section"><div class="container article-layout"><article class="prose">
+      ${post.sections.map((section) => `<section><h2>${esc(section.h2)}</h2>${section.html}</section>`).join("\n")}
+      <section><h2>Talk with a local agent</h2><p>${esc(post.agentNote)} Tell us about your move and we will help you build a plan, whether you are ready to tour this month or just starting to research.</p><div class="button-row"><a class="button" href="/${landingSlug}">Start your move plan</a><a class="button button-secondary" href="tel:${business.phone}">Call ${business.phoneDisplay}</a></div></section>
+      <section class="post-sources"><h2>Sources</h2><ul>${post.sources.map((source) => `<li><a href="${source.url}" target="_blank" rel="noopener">${esc(source.title)}</a></li>`).join("")}</ul><p class="form-note">This guide is general information, not tax, legal, or lending advice. Tax rates and rules change, so confirm details with a qualified professional.</p></section>
+    </article><aside class="sidebar-card"><p class="eyebrow">Moving to South Carolina?</p><h2>Get a local plan</h2><p>Share where you are moving from and your timeline. We will match you with the right agent.</p><a class="button" href="/${landingSlug}">Start your move plan</a><a class="button button-secondary" href="${business.homeSearchUrl}">Search homes</a></aside></div></section>
+    ${related.length ? `<section class="section compact section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Keep reading</p><h2>More relocation guides</h2></div><div class="card-grid">${related.map((item) => `<article class="card"><h3>${esc(item.label)}</h3><p>${esc(item.description)}</p><a class="card-link" href="/${item.slug}">Read the guide</a></article>`).join("")}</div></div></section>` : ""}
+  </main>`;
+  return shell({ slug: post.slug, title: post.title, description: post.description, body, current: "blog", schema: [article, breadcrumb] });
+}
+
+function blogIndex() {
+  const url = pageUrl(blogSlug);
+  const blog = {
+    "@type": "Blog",
+    "@id": `${url}#blog`,
+    name: `${business.name} Blog`,
+    url,
+    description: "Relocation guides and South Carolina real estate articles from The Tyler Simmons Team.",
+    publisher: { "@id": `${business.url}#real-estate-agent` },
+    blogPost: posts.map((post) => ({ "@id": `${pageUrl(post.slug)}#article` })),
+    inLanguage: "en-US"
+  };
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: business.url },
+      { "@type": "ListItem", position: 2, name: "Blog", item: url }
+    ]
+  };
+  const body = `<main id="main-content">
+    <section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Home</a> / Blog</p><p class="eyebrow">Blog</p><h1>South Carolina Real Estate and Relocation Guides</h1><p class="lead">Practical guides for moving to South Carolina and buying a home here, written by our local team.</p></div></section>
+    <section class="section"><div class="container"><div class="card-grid post-grid">
+      ${posts.map((post) => `<article class="card"><p class="post-meta"><time datetime="${post.date}">${esc(post.dateDisplay)}</time> · ${post.readMinutes} min read</p><h2 class="post-card-title"><a href="/${post.slug}">${esc(post.h1)}</a></h2><p>${esc(post.description)}</p><a class="card-link" href="/${post.slug}" aria-hidden="true" tabindex="-1">Read the guide</a></article>`).join("\n")}
+    </div></div></section>
+    <section class="section compact section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Newsletter</p><h2>Get new guides by email</h2><p class="lead">Subscribe to The Simmons Newsletter for South Carolina market updates and new articles.</p></div><a class="button" href="${business.newsletterUrl}" target="_blank" rel="noopener">Subscribe to the newsletter</a></div></section>
+    <section class="section"><div class="container">${relocationCta}</div></section>
+  </main>`;
+  return shell({ slug: blogSlug, title: "Blog | South Carolina Relocation Guides | Tyler Simmons Team", description: "South Carolina relocation guides and real estate articles covering taxes, communities, commutes, and buying a home from out of state.", body, current: "blog", schema: [blog, breadcrumb] });
+}
+
+function landingPage() {
+  const option = (value) => `<option>${esc(value)}</option>`;
+  const body = `<main id="main-content">
+    <section class="page-hero"><div class="container"><p class="eyebrow">Moving to South Carolina</p><h1>Moving to South Carolina? Start With a Local Buyer's Agent</h1><p class="lead">Our team helps relocating buyers from every state find the right community and the right home, with remote tours and a clear plan from the first call through closing.</p></div></section>
+    <section class="section"><div class="container contact-grid">
+      <div class="prose">
+        <h2>What you get when you work with us</h2>
+        <ul>
+          <li><strong>Help choosing the area first.</strong> We compare communities around your work, commute, budget, schools, and lifestyle before you look at houses.</li>
+          <li><strong>Remote tours.</strong> Live video walkthroughs and neighborhood drive-throughs so your in-person trip is focused on the best options.</li>
+          <li><strong>Agents across the state.</strong> Columbia and the Midlands, Lexington and Lake Murray, Blythewood, Rock Hill and York County, and Myrtle Beach.</li>
+          <li><strong>Coordination on both ends.</strong> If you are selling where you live now, we can connect you with a Coldwell Banker agent there and line up the timing.</li>
+          <li><strong>A local closing team.</strong> Lenders, inspectors, and South Carolina closing attorneys coordinated for you while you are still out of state.</li>
+        </ul>
+        <p>Prefer to talk now? Call <a href="tel:${business.phone}">${business.phoneDisplay}</a>.</p>
+        <p><a href="/blog/">Read our relocation guides</a></p>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/${business.email}" method="post">
+        <h2>Tell us about your move</h2>
+        <div class="field-grid">
+          <div class="field"><label for="lp-first-name">First name</label><input id="lp-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="lp-last-name">Last name</label><input id="lp-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="field-grid">
+          <div class="field"><label for="lp-phone">Phone</label><input id="lp-phone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="lp-email">Email</label><input id="lp-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="field"><label for="lp-from">Where are you moving from?</label><input id="lp-from" name="moving_from" placeholder="City and state" required></div>
+        <div class="field"><label for="lp-area">Where in South Carolina?</label><select id="lp-area" name="area" required><option value="">Choose one</option>${["Columbia and the Midlands", "Lexington and Lake Murray", "Blythewood and Fairfield County", "Rock Hill and York County", "Myrtle Beach and the Grand Strand", "Somewhere else in SC", "Not sure yet"].map(option).join("")}</select></div>
+        <div class="field-grid">
+          <div class="field"><label for="lp-timeline">When do you plan to buy?</label><select id="lp-timeline" name="timeline" required><option value="">Choose one</option>${["Within 3 months", "3 to 6 months", "6 to 12 months", "More than a year", "Just researching"].map(option).join("")}</select></div>
+          <div class="field"><label for="lp-financing">Financing</label><select id="lp-financing" name="financing" required><option value="">Choose one</option>${["Pre-approved", "Not pre-approved yet", "Paying cash"].map(option).join("")}</select></div>
+        </div>
+        <div class="field"><label for="lp-message">Anything else we should know? (optional)</label><textarea id="lp-message" name="message" placeholder="Price range, must-haves, work location, school needs, a home you need to sell first"></textarea></div>
+        <input type="hidden" name="lead_source" value="Relocation landing page">
+        <input type="hidden" name="_next" value="${business.url}thanks.html?src=relocation">
+        <input type="hidden" name="_subject" value="New relocation buyer lead from isellscre.com">
+        <input class="sr-only" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="_template" value="table">
+        <button class="button" type="submit">Get my move plan</button>
+        <p class="form-note">By submitting this form, you agree that our team may contact you about your real estate request. See our <a href="/privacy.html">privacy policy</a>.</p>
+      </form>
+    </div></section>
+  </main>`;
+  return shell({ slug: landingSlug, title: "Moving to South Carolina? Local Buyer's Agents | Tyler Simmons Team", description: "Relocating to South Carolina? Get help choosing a community, remote home tours, and a local buyer's agent from The Tyler Simmons Team at Coldwell Banker Realty.", body, current: "relocate", robots: "noindex,follow" });
+}
+
 function generateSupportFiles() {
   const schema = { "@context": "https://schema.org", "@graph": [businessSchema(), websiteSchema(), ...agents.map((agent) => ({
     "@type": "Person",
@@ -826,8 +946,13 @@ function generateSupportFiles() {
   }))] };
   fs.writeFileSync(path.join(root, "schema.json"), `${JSON.stringify(schema, null, 2)}\n`);
 
-  const sitemapSlugs = ["index.html", ...services.map((x) => x.slug), ...areas.map((x) => x.slug), ...agents.map((x) => `agent-${x.slug}.html`), "eval.html", "lend.html", "privacy.html"];
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapSlugs.map((slug) => `  <url>\n    <loc>${pageUrl(slug)}</loc>\n    <lastmod>${buildDate}</lastmod>\n  </url>`).join("\n")}\n</urlset>\n`;
+  const latestPost = posts.map((post) => post.date).sort().at(-1) || buildDate;
+  const sitemapEntries = [
+    ...["index.html", ...services.map((x) => x.slug), ...areas.map((x) => x.slug), ...agents.map((x) => `agent-${x.slug}.html`), "eval.html", "lend.html", "privacy.html"].map((slug) => [slug, buildDate]),
+    [blogSlug, latestPost],
+    ...posts.map((post) => [post.slug, post.date])
+  ];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.map(([slug, lastmod]) => `  <url>\n    <loc>${pageUrl(slug)}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`).join("\n")}\n</urlset>\n`;
   fs.writeFileSync(path.join(root, "sitemap.xml"), sitemap);
 
   const privatePaths = ["/thanks.html", "/text.html", "/mail.php", "/contract.html", "/initial.html", "/accessibility-enhancements.html"];
@@ -835,7 +960,7 @@ function generateSupportFiles() {
   const robots = `${["*", "OAI-SearchBot", "GPTBot", "Google-Extended", "PerplexityBot", "ClaudeBot"].map(agentRules).join("\n\n")}\n\nSitemap: ${business.url}sitemap.xml\n`;
   fs.writeFileSync(path.join(root, "robots.txt"), robots);
 
-  const llms = `# ${business.name} | South Carolina Real Estate\n\n> ${business.name} at ${business.brokerage} helps buyers, sellers, relocating households, military families, and investors across South Carolina.\n\n## Primary Contact\n\n- Website: ${business.url}\n- Phone: ${business.phoneDisplay}\n- Email: ${business.email}\n- Office: ${business.address.street}, ${business.address.city}, ${business.address.region} ${business.address.postalCode}\n\n## Services\n\n${services.map((item) => `- [${item.label}](${business.url}${item.slug}): ${item.description}`).join("\n")}\n\n## Service Areas\n\n${areas.map((item) => `- [${item.label}](${business.url}${item.slug})`).join("\n")}\n\n## Current Team\n\n${agents.map((agent) => `- [${agent.name}](${business.url}agent-${agent.slug}.html): ${agent.title}. ${agent.summary}`).join("\n")}\n\n## Public Resources\n\n- [Search homes](${business.homeSearchUrl})\n- [Request a home value](${business.url}eval.html)\n- [Preferred lender](${business.url}lend.html)\n- [Privacy policy](${business.url}privacy.html)\n- [Sitemap](${business.url}sitemap.xml)\n- [Structured data](${business.url}schema.json)\n`;
+  const llms = `# ${business.name} | South Carolina Real Estate\n\n> ${business.name} at ${business.brokerage} helps buyers, sellers, relocating households, military families, and investors across South Carolina.\n\n## Primary Contact\n\n- Website: ${business.url}\n- Phone: ${business.phoneDisplay}\n- Email: ${business.email}\n- Office: ${business.address.street}, ${business.address.city}, ${business.address.region} ${business.address.postalCode}\n\n## Services\n\n${services.map((item) => `- [${item.label}](${business.url}${item.slug}): ${item.description}`).join("\n")}\n\n## Service Areas\n\n${areas.map((item) => `- [${item.label}](${business.url}${item.slug})`).join("\n")}\n\n## Relocation Guides\n\n- [Blog](${pageUrl(blogSlug)})\n${posts.map((post) => `- [${post.label}](${pageUrl(post.slug)}): ${post.description}`).join("\n")}\n\n## Current Team\n\n${agents.map((agent) => `- [${agent.name}](${business.url}agent-${agent.slug}.html): ${agent.title}. ${agent.summary}`).join("\n")}\n\n## Public Resources\n\n- [Search homes](${business.homeSearchUrl})\n- [Request a home value](${business.url}eval.html)\n- [Preferred lender](${business.url}lend.html)\n- [Privacy policy](${business.url}privacy.html)\n- [Sitemap](${business.url}sitemap.xml)\n- [Structured data](${business.url}schema.json)\n`;
   fs.writeFileSync(path.join(root, "llms.txt"), llms);
 
   const full = `${llms}\n## Business Identity\n\n${business.name} is a South Carolina real estate team associated with ${business.brokerage}. The team maintains its primary public website at ${business.url}. The six current agents shown on the website are ${agents.map((agent) => agent.name).join(", ")}.\n\n## Client Needs\n\nThe team serves first-time and repeat buyers, home sellers, relocating households, military families completing PCS moves, and clients evaluating real estate investments. Real estate guidance does not replace legal, tax, lending, appraisal, inspection, insurance, construction, or financial advice.\n\n## Geographic Focus\n\nThe team's published areas include Columbia, Richland County, Lexington, West Columbia, Lake Murray, Blythewood, Fairfield County, Rock Hill, York County, Lancaster, Myrtle Beach, Horry County, and other South Carolina communities served by its agents.\n\n## Contact Guidance\n\nFor current listings, market information, property-specific advice, availability, or service-area confirmation, contact the team at ${business.phoneDisplay} or ${business.email}. Do not infer guarantees about property values, investment returns, financing approval, sale timing, or transaction outcomes.\n`;
@@ -846,6 +971,10 @@ fs.writeFileSync(path.join(root, "index.html"), homepage());
 for (const page of [...services, ...areas]) fs.writeFileSync(path.join(root, page.slug), pageBody(page));
 for (const agent of agents) fs.writeFileSync(path.join(root, `agent-${agent.slug}.html`), agentPage(agent));
 for (const [slug, content] of Object.entries(legacyPages)) fs.writeFileSync(path.join(root, slug), content);
+fs.mkdirSync(path.join(root, "blog"), { recursive: true });
+fs.writeFileSync(path.join(root, blogSlug), blogIndex());
+for (const post of posts) fs.writeFileSync(path.join(root, post.slug), blogPost(post));
+fs.writeFileSync(path.join(root, landingSlug), landingPage());
 generateSupportFiles();
 
-console.log(`Built ${1 + services.length + areas.length + agents.length + Object.keys(legacyPages).length} HTML pages.`);
+console.log(`Built ${1 + services.length + areas.length + agents.length + Object.keys(legacyPages).length + 2 + posts.length} HTML pages.`);
