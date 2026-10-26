@@ -479,6 +479,7 @@ ${preloadHero ? '  <link rel="preload" as="image" href="/assets/images/optimized
     function gtag(){dataLayer.push(arguments);}
     gtag("js", new Date());
     gtag("config", "G-5DKL1FRFGF");
+    gtag("config", "AW-881362907");
   </script>`;
 }
 
@@ -805,7 +806,7 @@ const legacyPages = {
     eyebrow: "Submission received",
     h1: "Thank You for Contacting Us",
     lead: "We received your submission and a member of the team will follow up. For a faster response, call us directly.",
-    content: `<div class="button-row"><a class="button" href="tel:${business.phone}">Call ${business.phoneDisplay}</a><a class="button button-secondary" href="/">Return to the homepage</a></div>`,
+    content: `<div class="button-row"><a class="button" href="tel:${business.phone}">Call ${business.phoneDisplay}</a><a class="button button-secondary" href="/">Return to the homepage</a></div><script>gtag("event", "conversion", { send_to: "AW-881362907/XkrLCLfi2qkdENuPoqQD" });</script>`,
     robots: "noindex,nofollow"
   }),
   "privacy.html": simplePage({
