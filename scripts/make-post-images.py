@@ -18,6 +18,7 @@ OUT = ROOT / "assets/images/blog"
 FONT_DIR = (ROOT / "assets/fonts").as_uri()
 
 # kind "route": origin -> destination. kind "steps": a short sequence.
+# kind "stats": a title plus up to three big numbers with labels.
 IMAGES = [
     {"file": "new-york-to-columbia", "category": "Relocation", "kind": "route",
      "from": "New York, NY", "to": "Columbia, SC"},
@@ -30,6 +31,9 @@ IMAGES = [
     {"file": "buying-from-out-of-state", "category": "Buying", "kind": "steps",
      "title": "Buying a South Carolina home from out of state",
      "steps": ["Plan", "Tour", "Offer", "Close"]},
+    {"file": "columbia-market-fall-2026", "category": "Market Update", "kind": "stats",
+     "title": "Columbia, SC buyer's market check: Fall 2026",
+     "stats": [["7.32%", "30-yr mortgage avg"], ["+14.8%", "active listings, 1 yr"], ["24.7%", "listings with price cuts"]]},
 ]
 
 CSS = f"""
@@ -72,8 +76,18 @@ def steps(spec):
     labels = "".join(f'<div class="label" style="left:{x-150}px; width:300px; top:{y+48}px; text-align:center; font-size:44px"><span class="small">Step {i+1}</span>{html.escape(s)}</div>' for i, (x, s) in enumerate(zip(xs, spec["steps"])))
     return f'<div class="title">{html.escape(spec["title"])}</div><svg viewBox="0 0 1600 840">{line}{dots}</svg>{labels}'
 
+def stats(spec):
+    n = len(spec["stats"])
+    w = 1380 / n
+    tiles = "".join(
+        f'<div class="label" style="left:{110 + i*w}px; top:430px; width:{w-40}px; font-size:110px; color:{"#e2c78d" if i == 0 else "#fff"}">{html.escape(v)}'
+        f'<span class="small" style="margin-top:18px">{html.escape(l)}</span></div>'
+        for i, (v, l) in enumerate(spec["stats"]))
+    rule = '<svg viewBox="0 0 1600 840"><line x1="110" y1="395" x2="1490" y2="395" stroke="#b89b5e" stroke-opacity=".5" stroke-width="3" stroke-dasharray="4 14" stroke-linecap="round"/></svg>'
+    return f'<div class="title" style="font-size:68px">{html.escape(spec["title"])}</div>{rule}{tiles}'
+
 def page(spec):
-    art = route(spec) if spec["kind"] == "route" else steps(spec)
+    art = {"route": route, "steps": steps, "stats": stats}[spec["kind"]](spec)
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>
 <div class="grid"></div><div class="eyebrow">{html.escape(spec['category'])}</div>{art}
 <div class="brand"><b>The Tyler Simmons Team</b> &nbsp;·&nbsp; Coldwell Banker Realty</div></body></html>"""

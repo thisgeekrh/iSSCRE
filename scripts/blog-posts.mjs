@@ -7,6 +7,57 @@
 
 export const posts = [
   {
+    slug: "blog/columbia-sc-housing-market-fall-2026-buyers.html",
+    label: "Columbia, SC Housing Market: Fall 2026 Update for Buyers",
+    title: "Columbia SC Housing Market Fall 2026: What 7% Rates Mean for Buyers",
+    description: "Mortgage rates are back above 7%, but Columbia, SC has more listings, more price cuts, and homes selling below asking. Here is what that means for buyers this fall.",
+    h1: "Columbia, SC Housing Market, Fall 2026: What 7% Rates Mean for Buyers",
+    lead: "Mortgage rates climbed for most of the fall and are still above 7%. That is the headline. The part most people miss is what it has done to competition in the Midlands, and why that can work in a buyer's favor.",
+    date: "2026-10-26",
+    dateDisplay: "October 26, 2026",
+    readMinutes: 6,
+    category: "Market Update",
+    image: "columbia-market-fall-2026",
+    imageAlt: "Market update graphic: 7.32% 30-year mortgage average, active listings up 14.8%, 24.7% of listings with price cuts",
+    agentNote: "Our Midlands agents are writing offers in this market every week, in Columbia, Lexington, Irmo, Chapin, and Blythewood.",
+    sections: [
+      {
+        h2: "Where mortgage rates stand right now",
+        html: `<p>Freddie Mac's weekly survey put the average 30-year fixed mortgage at <strong>7.32%</strong> for the week of October 22, 2026, down from 7.40% the week before. That was the first weekly drop after a seven-week climb that started near 6.65% in late August. A year ago, the same average was 6.19%. The 15-year fixed averaged 6.68%.</p><p>The Federal Reserve meets October 27 and 28. Fed decisions and mortgage rates are related, but the Fed does not set mortgage rates directly, so nobody can promise where rates go next. Plan around the rate you can get today, not a guess about next month.</p>`
+      },
+      {
+        h2: "What higher rates have done to the Columbia market",
+        html: `<p>Higher rates have pulled some buyers to the sidelines, and the Columbia numbers show it:</p><ul><li><strong>More choices.</strong> Realtor.com counted 3,111 active listings in the Columbia metro in August 2026, up 14.8% from a year earlier.</li><li><strong>More price cuts.</strong> About 24.7% of listings had a price reduction, and the median list price was about $301,600, down 2.8% from last year.</li><li><strong>More time to decide.</strong> Median days on market rose to 53 for listings, and Redfin reported homes in the city of Columbia taking about 40 days to sell, 8 days longer than a year earlier.</li><li><strong>Room to negotiate.</strong> Redfin's August data showed Columbia homes selling for about 98.3% of list price on average, so roughly 1.7% under asking.</li></ul><p>Prices have not crashed. Redfin's median sale price for the city was about $278,800, up 1.2% from last year. What has changed is leverage. In 2021 and 2022, buyers waived inspections to compete. Today, many sellers are the ones making concessions.</p>`
+      },
+      {
+        h2: "The real cost: what 7.32% means for your payment",
+        html: `<p>On a $280,000 home with 10% down, a $252,000 30-year loan at 7.32% is about <strong>$1,731 a month</strong> in principal and interest. At last year's 6.19% average, the same loan would be about $1,542. That is roughly $189 a month, before taxes and insurance.</p><p>That gap is real, but it can be smaller than it looks once you negotiate. A 2% price reduction on a $280,000 home is $5,600. Many sellers in this market will also consider paying part of a buyer's closing costs or helping fund a rate buydown, which can lower your payment for the first few years or for the life of the loan. Every lender and loan program handles this differently, so ask your lender to show you the numbers side by side.</p>`
+      },
+      {
+        h2: "How smart buyers are using this market",
+        html: `<ul><li><strong>Get pre-approved first.</strong> A strong pre-approval makes your offer easier for a seller to say yes to, even when you are asking for concessions.</li><li><strong>Look at homes that have sat.</strong> A listing past 30 to 45 days, or one that already cut its price, often has the most flexible seller.</li><li><strong>Ask for help with costs, not just price.</strong> Depending on your loan, seller-paid closing costs or a buydown can save you more each month than a small price cut.</li><li><strong>Keep your protections.</strong> In this market you usually do not have to waive inspections or shorten your due diligence period to compete.</li><li><strong>Be careful with "just refinance later."</strong> Refinancing may help if rates fall, but it is not guaranteed and it has costs. Buy a payment you are comfortable with today.</li></ul>`
+      },
+      {
+        h2: "Moving to South Carolina from out of state?",
+        html: `<p>For buyers relocating from higher-cost states, the Midlands still stands out. Columbia's median sale price is well below what many New York, California, and Northeast buyers are used to, and South Carolina's 4% legal residence property tax rate on a primary home keeps carrying costs lower once you apply for it. Our guide to <a href="/blog/buying-a-home-in-south-carolina-from-out-of-state.html">buying a South Carolina home from out of state</a> walks through the whole process.</p>`
+      }
+    ],
+    faq: [
+      ["What are mortgage rates in South Carolina right now?", "Freddie Mac's national average for a 30-year fixed mortgage was 7.32% for the week of October 22, 2026. Rates in South Carolina track the national average closely, but your rate depends on your credit, down payment, loan type, and lender."],
+      ["Is it a buyer's market in Columbia, SC?", "As of late summer and fall 2026, Columbia is leaning toward buyers. Active listings were up about 15% from a year earlier, about a quarter of listings had price cuts, and homes were selling for roughly 98% of list price on average."],
+      ["Should I wait for mortgage rates to drop before buying?", "No one can reliably predict rates. Waiting may mean more competition if rates fall and more buyers return. Many buyers focus on finding a home and payment that work today, and use negotiation, seller concessions, or a rate buydown to lower costs."],
+      ["How much is a mortgage payment on a $280,000 home in Columbia at 7.32%?", "With 10% down, a $252,000 30-year loan at 7.32% is about $1,731 a month in principal and interest, before property taxes, homeowners insurance, and any mortgage insurance."]
+    ],
+    sources: [
+      { title: "Freddie Mac via GlobeNewswire: Mortgage Rates Decrease to 7.32% (Oct. 22, 2026)", url: "https://www.globenewswire.com/news-release/2026/10/22/3386709/0/en/mortgage-rates-decrease-to-7-32.html" },
+      { title: "Bridgepoint: Freddie Mac rates October 22, 2026, and FOMC timing", url: "https://www.bridgepointrea.com/blog/freddie-mac-mortgage-rates-october-22-2026" },
+      { title: "Beaufort Mortgage: Columbia SC housing market update (summarizing Redfin and Realtor.com August 2026 data)", url: "https://beaufort.mortgage/blog/columbia-sc-housing-market-update" },
+      { title: "Redfin: Columbia, SC housing market", url: "https://www.redfin.com/city/4149/SC/Columbia/housing-market" },
+      { title: "Realtor.com: Columbia, SC housing market, August 2026", url: "https://www.realtor.com/news/local/columbia-sc-housing-market-columbia-sc-august-2026/" },
+      { title: "Richland County: Legal Residence (4%) assessment", url: "https://www.richlandcountysc.gov/Property-Business/Property-Valuation/Legal-Residence" }
+    ]
+  },
+  {
     slug: "blog/buying-a-home-in-south-carolina-from-out-of-state.html",
     label: "Buying a South Carolina Home from Out of State",
     title: "How to Buy a Home in South Carolina from Out of State | Step by Step",

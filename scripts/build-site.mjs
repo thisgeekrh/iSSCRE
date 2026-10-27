@@ -858,11 +858,13 @@ function blogPost(post) {
     <section class="section"><div class="container article-layout"><article class="prose">
       ${post.sections.map((section) => `<section><h2>${esc(section.h2)}</h2>${section.html}</section>`).join("\n")}
       <section><h2>Talk with a local agent</h2><p>${esc(post.agentNote)} Tell us about your move and we will help you build a plan, whether you are ready to tour this month or just starting to research.</p><div class="button-row"><a class="button" href="/${landingSlug}">Start your move plan</a><a class="button button-secondary" href="tel:${business.phone}">Call ${business.phoneDisplay}</a></div></section>
+      ${post.faq ? `<section><h2>Quick answers</h2><div class="faq-list">${post.faq.map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}</div></section>` : ""}
       <section class="post-sources"><h2>Sources</h2><ul>${post.sources.map((source) => `<li><a href="${source.url}" target="_blank" rel="noopener">${esc(source.title)}</a></li>`).join("")}</ul><p class="form-note">This guide is general information, not tax, legal, or lending advice. Tax rates and rules change, so confirm details with a qualified professional.</p></section>
     </article><aside class="sidebar-card"><p class="eyebrow">Moving to South Carolina?</p><h2>Get a local plan</h2><p>Share where you are moving from and your timeline. We will match you with the right agent.</p><a class="button" href="/${landingSlug}">Start your move plan</a><a class="button button-secondary" href="${business.homeSearchUrl}">Search homes</a></aside></div></section>
     ${related.length ? `<section class="section compact section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Keep reading</p><h2>More from our blog</h2></div><div class="card-grid">${related.map((item) => `<article class="card post-card">${postThumb(item)}<p class="post-meta">${esc(item.category)}</p><h3>${esc(item.label)}</h3><p>${esc(item.description)}</p><a class="card-link" href="/${item.slug}">Read more</a></article>`).join("")}</div></div></section>` : ""}
   </main>`;
-  return shell({ slug: post.slug, title: post.title, description: post.description, body, current: "blog", schema: [article, breadcrumb], image: { path: postImagePath(post), width: 1600, height: 840 } });
+  const faqSchema = post.faq ? [{ "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: post.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }] : [];
+  return shell({ slug: post.slug, title: post.title, description: post.description, body, current: "blog", schema: [article, breadcrumb, ...faqSchema], image: { path: postImagePath(post), width: 1600, height: 840 } });
 }
 
 function blogIndex() {
