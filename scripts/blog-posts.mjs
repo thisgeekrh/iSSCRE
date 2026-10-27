@@ -375,6 +375,15 @@ export const posts = [
 <p>That is what makes real estate personal.</p>
 <p>Our job is to help you understand what this market means for you, not just what the headlines say. Whether you are relocating, selling, buying your first home, upsizing, downsizing, investing, or simply curious about your home’s value, we are here to guide you with clarity and care.</p>
 <p>Contact The Tyler Simmons Team at Coldwell Banker Realty: email <a href="mailto:admin@isellscre.com">admin@isellscre.com</a> or call <a href="tel:+18039997522">803-999-7522</a>.</p>`
+      },
+      {
+        h2: "Preferred Lender Spotlight",
+        html: `<p>Buying a home in South Carolina starts with having the right people in your corner. That is why we are proud to recommend our friend and preferred lender, <strong>Kolin Causey with CrossCountry Mortgage</strong>.</p>
+<p>Whether you are relocating to South Carolina, purchasing your first home, moving into a larger space, refinancing, or exploring investment opportunities, Kolin helps make the mortgage process feel clear and approachable. His goal is to guide clients through their options, answer questions along the way, and help create a smoother path from pre approval to closing.</p>
+<p>Have questions about financing your next move?</p>
+<figure class="lender-photo"><img src="/assets/images/Kolin.png" width="1080" height="1080" loading="lazy" alt="Kolin Causey, preferred lender"></figure>
+<p><strong>Kolin Causey</strong><br>NMLS: 2638252<br>Partner Lender<br>Phone: <a href="tel:+19106250914">(910) 625-0914</a><br>Email: <a href="mailto:kolin.causey@ccm.com">kolin.causey@ccm.com</a><br><a href="http://www.korbincausey.com/">www.korbincausey.com</a></p>
+<p class="form-note">Lender information as of June 2026. For current financing help, see our <a href="/lend.html">preferred lender page</a>.</p>`
       }
     ],
     sources: []
@@ -416,6 +425,12 @@ export const posts = [
         html: `<p>Whatever your real estate dreams are, we are here to make them happen.</p>
 <p>📲 Call or text us at <a href="tel:+18039997522">803-999-7522</a><br>📧 Email us at <a href="mailto:admin@isellscre.com">admin@isellscre.com</a></p>
 <p>🏡 <a href="https://tylersimmonsteam.sites.cbmoxi.com/listings/our-active-listings"><strong>View our active listings</strong></a><br>🔍 <a href="https://tylersimmonsteam.sites.cbmoxi.com/search/#!/defaultsearch:true"><strong>Start your property search</strong></a></p>`
+      },
+      {
+        h2: "Our Preferred Lender Kolin",
+        html: `<figure class="lender-photo"><img src="/assets/images/Kolin.png" width="1080" height="1080" loading="lazy" alt="Kolin Causey, preferred lender"></figure>
+<p><strong>Kolin Causey</strong><br>NMLS: 2638252<br>Partner Lender<br>Phone: <a href="tel:+19106250914">(910) 625-0914</a><br>Email: <a href="mailto:kolin.causey@fairwaymc.com">kolin.causey@fairwaymc.com</a><br><a href="http://www.korbincausey.com/">www.korbincausey.com</a></p>
+<p class="form-note">Lender information as of August 2025. For current financing help, see our <a href="/lend.html">preferred lender page</a>.</p>`
       }
     ],
     sources: []
@@ -464,6 +479,12 @@ export const posts = [
 <p>We’re just getting started. Follow along as <strong>The Tyler Simmons Team at Coldwell Banker Realty</strong> grows, evolves, and brings a fresh energy to South Carolina real estate.</p>
 <p>Let’s do something amazing together 💙</p>
 <p><strong>The Tyler Simmons Team at Coldwell Banker Realty</strong></p>`
+      },
+      {
+        h2: "Our Preferred Lender",
+        html: `<figure class="lender-photo"><img src="/assets/images/Kolin.png" width="1080" height="1080" loading="lazy" alt="Kolin Causey, preferred lender"></figure>
+<p><strong>Kolin Causey</strong><br>NMLS: 2638252<br>Partner Lender<br>Phone: <a href="tel:+19106250914">(910) 625-0914</a><br>Email: <a href="mailto:kolin.causey@fairwaymc.com">kolin.causey@fairwaymc.com</a><br><a href="http://www.korbincausey.com/">www.korbincausey.com</a></p>
+<p class="form-note">Lender information as of July 2025. For current financing help, see our <a href="/lend.html">preferred lender page</a>.</p>`
       }
     ],
     sources: []
