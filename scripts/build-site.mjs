@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { posts } from "./blog-posts.mjs";
+import { posts as rawPosts } from "./blog-posts.mjs";
+// Newest first; posts with the same date keep their order in blog-posts.mjs.
+const posts = rawPosts.map((post, index) => ({ post, index })).sort((a, b) => b.post.date.localeCompare(a.post.date) || a.index - b.index).map((x) => x.post);
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const site = JSON.parse(fs.readFileSync(path.join(root, "data/site.json"), "utf8"));
@@ -445,8 +447,8 @@ function websiteSchema() {
   };
 }
 
-function head({ slug, title, description, schema = [], robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1", preloadHero = false, image = null }) {
-  const ogImage = image ? { url: `${business.url}${image.path}`, width: image.width, height: image.height } : { url: `${business.url}assets/images/optimized/hero-1920.webp`, width: 1920, height: 950 };
+function head({ slug, title, description, schema = [], robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1", preloadHero = false, image = null, article = null }) {
+  const ogImage = image ? { url: image.url || `${business.url}${image.path}`, width: image.width, height: image.height, alt: image.alt || title } : { url: `${business.url}assets/images/optimized/hero-1920.jpg`, width: 1920, height: 950, alt: business.name };
   const canonical = pageUrl(slug);
   const graph = [businessSchema(), websiteSchema(), ...schema];
   return `
@@ -458,8 +460,9 @@ function head({ slug, title, description, schema = [], robots = "index,follow,ma
   <meta name="robots" content="${esc(robots)}">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/optimized/favicon-192.png">
-    <link rel="stylesheet" href="/assets/css/site.css?v=20261025b">
-${preloadHero ? '  <link rel="preload" as="image" href="/assets/images/optimized/hero-960.webp" type="image/webp" fetchpriority="high">\n' : ""}  <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20261026a">
+${preloadHero ? '  <link rel="preload" as="image" href="/assets/images/optimized/hero-960.webp" type="image/webp" fetchpriority="high">\n' : ""}  <meta property="og:type" content="${article ? "article" : "website"}">
+${article ? `  <meta property="article:published_time" content="${article.published}">\n  <meta property="article:section" content="${esc(article.section)}">\n` : ""}
   <meta property="og:site_name" content="${esc(business.name)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${esc(title)}">
@@ -467,10 +470,12 @@ ${preloadHero ? '  <link rel="preload" as="image" href="/assets/images/optimized
   <meta property="og:image" content="${ogImage.url}">
   <meta property="og:image:width" content="${ogImage.width}">
   <meta property="og:image:height" content="${ogImage.height}">
+  <meta property="og:image:alt" content="${esc(ogImage.alt)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${ogImage.url}">
+  <meta name="twitter:image:alt" content="${esc(ogImage.alt)}">
   <meta name="geo.region" content="US-SC">
   <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DKL1FRFGF"></script>
@@ -546,10 +551,10 @@ function footer() {
   <script src="/assets/js/site.js" defer></script>`;
 }
 
-function shell({ slug, title, description, body, current = "", schema = [], robots, preloadHero = false, image = null }) {
+function shell({ slug, title, description, body, current = "", schema = [], robots, preloadHero = false, image = null, article = null }) {
   return `<!doctype html>
 <html lang="en-US">
-<head>${head({ slug, title, description, schema, robots, preloadHero, image })}
+<head>${head({ slug, title, description, schema, robots, preloadHero, image, article })}
 </head>
 <body>
   ${header(current)}
@@ -823,7 +828,9 @@ const legacyPages = {
 const relocationCta = `<div class="cta"><p class="eyebrow">Planning a move?</p><h2>Get a South Carolina move plan from a local team</h2><p>Tell us where you are moving from, where you are looking, and your timeline. We will match you with the agent who knows that area and help you plan the search from wherever you are now.</p><div class="button-row"><a class="button button-light" href="/${landingSlug}">Start your move plan</a><a class="button button-outline-light" href="tel:${business.phone}">Call ${business.phoneDisplay}</a></div></div>`;
 
 const postImagePath = (post) => `assets/images/blog/${post.image}.webp`;
-const postThumb = (post) => `<a class="post-thumb" href="/${post.slug}" tabindex="-1" aria-hidden="true"><img src="/${postImagePath(post)}" width="1600" height="840" loading="lazy" alt=""></a>`;
+const postImageSrc = (post) => post.imageUrl || `/${postImagePath(post)}`;
+const postOgImage = (post) => post.ogImageUrl ? { url: post.ogImageUrl, width: post.ogImageWidth || 1200, height: post.ogImageHeight || 630, alt: post.imageAlt } : { url: `${business.url}assets/images/blog/og/${post.image}.jpg`, width: 1600, height: 840, alt: post.imageAlt };
+const postThumb = (post) => `<a class="post-thumb" href="/${post.slug}" tabindex="-1" aria-hidden="true"><img src="${postImageSrc(post)}" width="1600" height="840" loading="lazy" alt=""></a>`;
 
 function blogPost(post) {
   const url = pageUrl(post.slug);
@@ -835,7 +842,7 @@ function blogPost(post) {
     url,
     datePublished: post.date,
     dateModified: post.date,
-    image: `${business.url}${postImagePath(post)}`,
+    image: postOgImage(post).url,
     articleSection: post.category,
     author: { "@id": `${business.url}#real-estate-agent` },
     publisher: { "@id": `${business.url}#real-estate-agent` },
@@ -854,17 +861,18 @@ function blogPost(post) {
   const related = [...others.filter((item) => item.category === post.category), ...others.filter((item) => item.category !== post.category)].slice(0, 3);
   const body = `<main id="main-content">
     <section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a> / ${esc(post.label)}</p><p class="eyebrow">${esc(post.category)}</p><h1>${esc(post.h1)}</h1><p class="lead">${esc(post.lead)}</p><p class="post-meta"><time datetime="${post.date}">${esc(post.dateDisplay)}</time> · ${post.readMinutes} min read · ${esc(business.name)}</p></div></section>
-    <div class="container post-feature"><img src="/${postImagePath(post)}" width="1600" height="840" alt="${esc(post.imageAlt)}" fetchpriority="high"></div>
+    <div class="container post-feature"><img src="${postImageSrc(post)}" width="1600" height="840" alt="${esc(post.imageAlt)}" fetchpriority="high"></div>
     <section class="section"><div class="container article-layout"><article class="prose">
-      ${post.sections.map((section) => `<section><h2>${esc(section.h2)}</h2>${section.html}</section>`).join("\n")}
+      ${post.originalNote ? `<p class="form-note">${esc(post.originalNote)}</p>` : ""}
+      ${post.sections.map((section) => `<section>${section.h2 ? `<h2>${esc(section.h2)}</h2>` : ""}${section.html}</section>`).join("\n")}
       <section><h2>Talk with a local agent</h2><p>${esc(post.agentNote)} Tell us about your move and we will help you build a plan, whether you are ready to tour this month or just starting to research.</p><div class="button-row"><a class="button" href="/${landingSlug}">Start your move plan</a><a class="button button-secondary" href="tel:${business.phone}">Call ${business.phoneDisplay}</a></div></section>
       ${post.faq ? `<section><h2>Quick answers</h2><div class="faq-list">${post.faq.map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}</div></section>` : ""}
-      <section class="post-sources"><h2>Sources</h2><ul>${post.sources.map((source) => `<li><a href="${source.url}" target="_blank" rel="noopener">${esc(source.title)}</a></li>`).join("")}</ul><p class="form-note">This guide is general information, not tax, legal, or lending advice. Tax rates and rules change, so confirm details with a qualified professional.</p></section>
+      ${post.sources && post.sources.length ? `<section class="post-sources"><h2>Sources</h2><ul>${post.sources.map((source) => `<li><a href="${source.url}" target="_blank" rel="noopener">${esc(source.title)}</a></li>`).join("")}</ul><p class="form-note">This guide is general information, not tax, legal, or lending advice. Tax rates and rules change, so confirm details with a qualified professional.</p></section>` : ""}
     </article><aside class="sidebar-card"><p class="eyebrow">Moving to South Carolina?</p><h2>Get a local plan</h2><p>Share where you are moving from and your timeline. We will match you with the right agent.</p><a class="button" href="/${landingSlug}">Start your move plan</a><a class="button button-secondary" href="${business.homeSearchUrl}">Search homes</a></aside></div></section>
     ${related.length ? `<section class="section compact section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Keep reading</p><h2>More from our blog</h2></div><div class="card-grid">${related.map((item) => `<article class="card post-card">${postThumb(item)}<p class="post-meta">${esc(item.category)}</p><h3>${esc(item.label)}</h3><p>${esc(item.description)}</p><a class="card-link" href="/${item.slug}">Read more</a></article>`).join("")}</div></div></section>` : ""}
   </main>`;
   const faqSchema = post.faq ? [{ "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: post.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }] : [];
-  return shell({ slug: post.slug, title: post.title, description: post.description, body, current: "blog", schema: [article, breadcrumb, ...faqSchema], image: { path: postImagePath(post), width: 1600, height: 840 } });
+  return shell({ slug: post.slug, title: post.title, description: post.description, body, current: "blog", schema: [article, breadcrumb, ...faqSchema], image: postOgImage(post), article: { published: post.date, section: post.category } });
 }
 
 function blogIndex() {
@@ -894,7 +902,7 @@ function blogIndex() {
     <section class="section compact section-soft"><div class="container"><div class="section-heading"><p class="eyebrow">Newsletter</p><h2>Get new posts by email</h2><p class="lead">Subscribe to The Simmons Newsletter for South Carolina market updates and new articles.</p></div><a class="button" href="${business.newsletterUrl}" target="_blank" rel="noopener">Subscribe to the newsletter</a></div></section>
     <section class="section"><div class="container">${relocationCta}</div></section>
   </main>`;
-  return shell({ slug: blogSlug, title: "Blog | South Carolina Real Estate | The Tyler Simmons Team", description: "South Carolina real estate advice, market updates, buying and selling tips, and relocation guides from The Tyler Simmons Team at Coldwell Banker Realty.", body, current: "blog", schema: [blog, breadcrumb], image: posts[0] ? { path: postImagePath(posts[0]), width: 1600, height: 840 } : null });
+  return shell({ slug: blogSlug, title: "Blog | South Carolina Real Estate | The Tyler Simmons Team", description: "South Carolina real estate advice, market updates, buying and selling tips, and relocation guides from The Tyler Simmons Team at Coldwell Banker Realty.", body, current: "blog", schema: [blog, breadcrumb], image: posts[0] ? postOgImage(posts[0]) : null });
 }
 
 function landingPage() {

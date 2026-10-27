@@ -92,6 +92,18 @@ def page(spec):
 <div class="grid"></div><div class="eyebrow">{html.escape(spec['category'])}</div>{art}
 <div class="brand"><b>The Tyler Simmons Team</b> &nbsp;·&nbsp; Coldwell Banker Realty</div></body></html>"""
 
+def make_og_jpgs():
+    """Social sites (Facebook, LinkedIn, iMessage) handle JPG previews most reliably."""
+    og = OUT / "og"
+    og.mkdir(exist_ok=True)
+    for webp in sorted(OUT.glob("*.webp")):
+        Image.open(webp).convert("RGB").save(og / f"{webp.stem}.jpg", "JPEG", quality=86, optimize=True, progressive=True)
+    hero = ROOT / "assets/images/optimized/hero-1920.webp"
+    if hero.exists():
+        Image.open(hero).convert("RGB").save(hero.with_suffix(".jpg"), "JPEG", quality=84, optimize=True, progressive=True)
+    print("wrote og jpgs")
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as p:
@@ -110,6 +122,7 @@ def main():
             png.unlink()
             print("wrote", spec["file"])
         browser.close()
+    make_og_jpgs()
 
 if __name__ == "__main__":
     main()
