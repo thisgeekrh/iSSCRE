@@ -287,5 +287,185 @@ export const posts = [
       { title: "NerdWallet: New York State income tax rates and brackets", url: "https://www.nerdwallet.com/taxes/learn/new-york-state-tax" },
       { title: "Richland County: Legal Residence (4%) assessment", url: "https://www.richlandcountysc.gov/Property-Business/Property-Valuation/Legal-Residence" }
     ]
+  },
+
+  // ---- Imported from The Simmons Newsletter (beehiiv), original publish dates kept ----
+  {
+    slug: "blog/why-people-are-moving-to-south-carolina-2026.html",
+    label: "Why Everyone Is Still Moving to South Carolina in 2026",
+    title: "Why Everyone Is Still Moving to South Carolina in 2026 | Tyler Simmons Team",
+    description: "South Carolina continues to attract new residents in 2026. Here is why people are moving to the Palmetto State and what it means for buyers, sellers, and homeowners.",
+    h1: "Why Everyone Is Still Moving to South Carolina in 2026, And What That Means for Homeowners",
+    lead: "South Carolina is not just growing. It is being chosen.",
+    date: "2026-06-29",
+    dateDisplay: "June 29, 2026",
+    readMinutes: 5,
+    category: "Market Update",
+    imageUrl: "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=85,width=1600,format=auto,onerror=redirect/uploads/asset/file/0f03fb07-310d-4e64-90d2-fa4d902a5ace/sc-moving-to-south-carolina-2026-full-preserve-1200x630.png",
+    ogImageUrl: "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=85,width=1200,format=jpeg,onerror=redirect/uploads/asset/file/0f03fb07-310d-4e64-90d2-fa4d902a5ace/sc-moving-to-south-carolina-2026-full-preserve-1200x630.png",
+    imageAlt: "Why everyone is still moving to South Carolina in 2026",
+    originalNote: "Originally published in The Simmons Newsletter on June 29, 2026. Figures reflect data available at that time.",
+    agentNote: "Our team helps buyers, sellers, and relocating families across South Carolina.",
+    sections: [
+      {
+        html: `<p>From Columbia to Charleston, Myrtle Beach to Greenville, Lexington to Florence, more people are looking at the Palmetto State and seeing something they want more of: space, opportunity, community, and a lifestyle that feels easier to enjoy.</p>
+<p>And the numbers back it up.</p>
+<p>According to state analysis of U.S. Census Bureau data, South Carolina grew by <strong>1.5 percent between July 2024 and July 2025</strong>, making it the fastest growing state in the country by percentage growth. The state added nearly <strong>80,000 people</strong> during that period, and the biggest driver was domestic migration, with <strong>66,622 more people moving into South Carolina from other states than leaving it</strong>.</p>
+<p>That is a big deal for real estate.</p>
+<p>Whether you already own a home, are thinking about selling, are considering buying, or know someone relocating to South Carolina, this growth is shaping the market in real time.</p>
+<figure><img src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=85,width=1200,format=auto,onerror=redirect/uploads/asset/file/f6adf15b-45c0-4b0b-85f4-dfecc89765a7/Moving_to_SC.png" width="1536" height="1024" loading="lazy" alt="Moving to South Carolina"></figure>`
+      },
+      {
+        h2: "Why are people still moving to South Carolina?",
+        html: `<p>There is no single reason. That is part of what makes South Carolina so attractive.</p>
+<p>For some people, it is the weather. For others, it is the cost of living compared with larger metro areas. Some are moving to be closer to family. Some are relocating for jobs. Others are choosing South Carolina because they want access to the beach, lakes, small towns, major employers, college communities, and a slower pace without giving up convenience.</p>
+<p>United Van Lines’ 2025 National Movers Study ranked South Carolina as one of the top inbound states, with <strong>61 percent of tracked moves into the state</strong>. The study also found that Americans moving across state lines were most often motivated by being closer to family, a company transfer or new job, and retirement. It also pointed to a broader shift toward smaller cities and towns where housing may feel more attainable than in larger markets.</p>
+<p>That description fits South Carolina well.</p>
+<p>We have communities where you can be close to downtown dining, hospitals, universities, major employers, military bases, beaches, lakes, and quiet neighborhoods, often within a short drive of each other.</p>`
+      },
+      {
+        h2: "Jobs and opportunity are part of the story",
+        html: `<p>Relocation is not just about lifestyle. People also move where they see opportunity.</p>
+<p>South Carolina announced <strong>$9.12 billion in capital investment in 2025</strong>, representing the third highest year for industry recruitment on record, along with more than <strong>8,100 new jobs</strong>. Rural recruitment also made up more than 40 percent of announced capital investment and new jobs, which shows growth is not only happening in the largest cities.</p>
+<p>That matters because job growth and housing demand are closely connected.</p>
+<p>When new employers come in, workers follow. When workers follow, they need homes. When families move, they look for schools, neighborhoods, commute routes, restaurants, parks, churches, and community. Over time, that creates ripple effects for homeowners, buyers, sellers, investors, and local businesses.</p>`
+      },
+      {
+        h2: "South Carolina still offers a mix of options",
+        html: `<p>One reason South Carolina continues to attract attention is that it offers different types of living within the same state.</p>
+<p>You can find a more affordable city market in Columbia, a coastal lifestyle in Myrtle Beach, a luxury and historic feel in Charleston, a growing downtown and business scene in Greenville, and strong suburban demand in places like Lexington, Irmo, Blythewood, Sumter, Florence, and surrounding communities.</p>
+<p><a href="https://www.realtor.com/">Realtor.com</a>’s April 2026 statewide data showed a South Carolina median listing price of <strong>$355,000</strong>, with <strong>57,428 homes for sale</strong>, a median rent of <strong>$1,825 per month</strong>, and a median of <strong>54 days on market</strong>. The same data showed Columbia with a median listing price of <strong>$260,000</strong>, Myrtle Beach at <strong>$279,000</strong>, Greenville at <strong>$385,000</strong>, and Charleston at <strong>$650,000</strong>.</p>
+<p>That variety is important.</p>
+<p>Not every buyer wants the same thing. Not every seller is competing with the same market. A relocating family comparing Columbia and Charleston is looking at two very different price points, lifestyles, and inventory conditions. A seller in Lexington may have a different strategy than a seller near the coast. A first time buyer in Columbia may see opportunity that looks very different from a buyer shopping in a higher priced coastal market.</p>
+<p>That is why local guidance matters.</p>`
+      },
+      {
+        h2: "What does this mean for South Carolina homeowners?",
+        html: `<p>For homeowners, population growth can be a positive long term sign.</p>
+<p>More people moving in means more potential demand for housing, especially in areas with strong schools, convenient commutes, new jobs, medical access, shopping, dining, and lifestyle amenities. But growth does not automatically mean every home will sell quickly or for any price.</p>
+<p>The 2026 market is more strategic than the fast moving frenzy many people remember from a few years ago.</p>
+<p>Redfin’s May 2026 South Carolina housing data showed home prices up <strong>1.7 percent year over year</strong>, home sales up <strong>5 percent</strong>, and homes for sale up <strong>8.2 percent</strong>. In other words, buyers are still active, but they also have more choices than they did in tighter inventory markets.</p>
+<p>That means homeowners should pay close attention to three things.</p>
+<p>First, pricing matters. Buyers are still buying, but they are comparing more options. Overpricing can cause a home to sit, while smart pricing can create stronger activity.</p>
+<p>Second, presentation matters. Clean photos, strong marketing, curb appeal, staging, and clear property details can help a home stand out.</p>
+<p>Third, local strategy matters. Statewide trends are helpful, but your neighborhood, price range, condition, location, and competition determine your real selling position.</p>`
+      },
+      {
+        h2: "What does this mean for buyers?",
+        html: `<p>For buyers, South Carolina’s growth is a reminder that waiting for the “perfect” market can be tricky.</p>
+<p>Mortgage rates are still a major part of affordability. Freddie Mac reported the average 30 year fixed mortgage rate at <strong>6.48 percent as of June 4, 2026</strong>, down from the previous week and lower than the same time one year earlier.</p>
+<p>Even with higher rates than buyers saw a few years ago, the market is not frozen. People are still relocating. Homes are still selling. Sellers are still making moves. And buyers who are prepared can still find good opportunities.</p>
+<p>The key is knowing where to look, what to ask, and how to structure a strong offer without overextending.</p>
+<p>For some buyers, that may mean looking at Columbia, Florence, Sumter, or surrounding areas for affordability. For others, it may mean paying more for coastal access, historic charm, or a specific school zone. The right answer depends on your goals, timeline, budget, and lifestyle.</p>`
+      },
+      {
+        h2: "What does this mean for sellers?",
+        html: `<p>For sellers, the growth story is encouraging, but it should not create false confidence.</p>
+<p>Yes, people are moving here. Yes, South Carolina remains desirable. Yes, many homeowners have gained equity over the past several years.</p>
+<p>But buyers are more informed now. They are watching mortgage payments, taxes, insurance, condition, repairs, location, and resale potential. They are not just buying any home at any price.</p>
+<p>That is why a strong listing strategy is so important. A good strategy should answer questions like:</p>
+<ol><li>What are buyers currently paying for homes like mine?</li><li>How many similar homes are competing with mine?</li><li>What repairs or updates would make the biggest difference?</li><li>Should I list now, later this summer, or wait?</li><li>What will I realistically net after closing costs, payoff, and preparation?</li></ol>
+<p>The best sellers in this market are not guessing. They are preparing.</p>`
+      },
+      {
+        h2: "Our local take",
+        html: `<p>At The Tyler Simmons Team, we believe South Carolina’s growth is about more than numbers.</p>
+<p>People are not just moving here for houses. They are moving here for a better fit.</p>
+<p>They want a front porch, a shorter commute, a neighborhood that feels welcoming, a lake weekend, a beach trip, a backyard, a better investment, a fresh start, or a place where their family can grow.</p>
+<p>That is what makes real estate personal.</p>
+<p>Our job is to help you understand what this market means for you, not just what the headlines say. Whether you are relocating, selling, buying your first home, upsizing, downsizing, investing, or simply curious about your home’s value, we are here to guide you with clarity and care.</p>
+<p>Contact The Tyler Simmons Team at Coldwell Banker Realty: email <a href="mailto:admin@isellscre.com">admin@isellscre.com</a> or call <a href="tel:+18039997522">803-999-7522</a>.</p>`
+      }
+    ],
+    sources: []
+  },
+  {
+    slug: "blog/yes-we-work-hard-but-we-have-fun-too.html",
+    label: "Yes, We Work Hard, But We Have Fun Too!",
+    title: "Yes, We Work Hard, But We Have Fun Too! | The Tyler Simmons Team",
+    description: "Discover the Tyler Simmons Team's approach to real estate: expert service with a fun twist. Dedicated professionals who make your home journey exciting, supportive, and stress-free.",
+    h1: "Yes, We Work Hard, But We Have Fun Too!",
+    lead: "Buying or selling a home should be an exciting chapter in your life, not a stressful one.",
+    date: "2025-08-15",
+    dateDisplay: "August 15, 2025",
+    readMinutes: 3,
+    category: "Team News",
+    imageUrl: "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=85,width=1600,format=auto,onerror=redirect/uploads/asset/file/a4bfce97-f2c9-4f4a-9d42-d356775561f0/FunTeam.jpg",
+    ogImageUrl: "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=85,width=1200,format=jpeg,onerror=redirect/uploads/asset/file/a4bfce97-f2c9-4f4a-9d42-d356775561f0/FunTeam.jpg",
+    ogImageWidth: 1200,
+    ogImageHeight: 800,
+    imageAlt: "The Tyler Simmons Team having fun together",
+    originalNote: "Originally published in The Simmons Newsletter on August 15, 2025.",
+    agentNote: "Buying, selling, relocating, or investing, our team is here to help.",
+    sections: [
+      {
+        h2: "Real estate, the fun way",
+        html: `<p>At The Tyler Simmons Team, we believe buying or selling a home should be an exciting chapter in your life, not a stressful one. That is why we bring expertise, dedication, and yes, a little fun to everything we do.</p>
+<p>When you work with us, you get more than just agents. You get a team that has your back, celebrates your wins, and is always ready to roll up our sleeves to get you results. Whether you are ready to list your home, start your search, or just have a few questions, we are here to guide you every step of the way.</p>
+<p>📸 This photo is a glimpse of who we are: real people who care about you, your family, and your goals, and who are not afraid to laugh along the way.</p>`
+      },
+      {
+        h2: "Our featured listing",
+        html: `<p><a href="https://www.youtube.com/watch?v=gOwKvgx_nOU"><img src="https://i.ytimg.com/vi/gOwKvgx_nOU/hqdefault.jpg" width="480" height="360" loading="lazy" alt="Video tour: 21 acres on Pageland Highway, Lancaster, SC"></a></p>
+<p><a href="https://www.youtube.com/watch?v=gOwKvgx_nOU">Watch the video tour on YouTube</a></p>
+<p><strong>21 Acres on Pageland Highway, Lancaster, SC</strong><br>Discover 21 acres of opportunity just off Pageland Highway. This gated property features a private drive lined with mature pines, multiple flat buildable areas, and a peaceful stretch of Wild Cat Creek perfect for fishing or relaxing. The included 40-foot converted school bus opens the door to creative uses like a studio or storage. Already perked and ready, this land blends the privacy of rural living with quick access to Lancaster and Pageland. Bring your vision. This property is ready for it.</p>
+<p class="form-note">Featured in August 2025 and may no longer be available. <a href="https://tylersimmonsteam.sites.cbmoxi.com/listings/our-active-listings">See our current listings</a>.</p>`
+      },
+      {
+        h2: "Buying. Selling. Relocating. Investing.",
+        html: `<p>Whatever your real estate dreams are, we are here to make them happen.</p>
+<p>📲 Call or text us at <a href="tel:+18039997522">803-999-7522</a><br>📧 Email us at <a href="mailto:admin@isellscre.com">admin@isellscre.com</a></p>
+<p>🏡 <a href="https://tylersimmonsteam.sites.cbmoxi.com/listings/our-active-listings"><strong>View our active listings</strong></a><br>🔍 <a href="https://tylersimmonsteam.sites.cbmoxi.com/search/#!/defaultsearch:true"><strong>Start your property search</strong></a></p>`
+      }
+    ],
+    sources: []
+  },
+  {
+    slug: "blog/our-team-has-a-new-name-and-a-new-brokerage.html",
+    label: "Our Team Has a New Name and a New Brokerage",
+    title: "Our Team Has a New Name and a New Brokerage | Coldwell Banker Realty",
+    description: "The Tyler Simmons Team transitions to Coldwell Banker Realty, bringing enhanced marketing power and national reach to South Carolina home buyers and sellers.",
+    h1: "Exciting Real Estate News: Our Team Has a New Name and a New Brokerage",
+    lead: "Say hello to The Tyler Simmons Team at Coldwell Banker Realty!",
+    date: "2025-07-08",
+    dateDisplay: "July 8, 2025",
+    readMinutes: 4,
+    category: "Team News",
+    imageUrl: "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=85,width=1600,format=auto,onerror=redirect/uploads/asset/file/b5643f0c-ddde-47b4-9cdc-53b888252d84/Simmons_Stratton_Group_FB_Cover__Twitter_Header_.png",
+    ogImageUrl: "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=85,width=1200,format=jpeg,onerror=redirect/uploads/asset/file/b5643f0c-ddde-47b4-9cdc-53b888252d84/Simmons_Stratton_Group_FB_Cover__Twitter_Header_.png",
+    ogImageWidth: 1200,
+    ogImageHeight: 400,
+    imageAlt: "The Tyler Simmons Team at Coldwell Banker Realty",
+    originalNote: "Originally published in The Simmons Newsletter on July 8, 2025.",
+    agentNote: "We serve Columbia, Chapin, Rock Hill, Lexington, Myrtle Beach, and everywhere in between.",
+    sections: [
+      {
+        html: `<p>Big things are happening around here, and we’re finally letting the secret out! After years of serving amazing clients across South Carolina with passion and purpose, we’re stepping into a bold new chapter. Say hello to <strong>The Tyler Simmons Team at Coldwell Banker Realty</strong>!</p>
+<p>This exciting move to <strong>Coldwell Banker Realty in Columbia, SC</strong> gives our team the tools, technology, and national reach to better serve buyers and sellers throughout the Palmetto State.</p>`
+      },
+      {
+        h2: "Why the change?",
+        html: `<p>Partnering with Coldwell Banker means we’re leveling up.<br>✅ More marketing power<br>✅ More resources for YOU<br>✅ A brand with global recognition and local roots<br>✅ Unmatched exposure for your listings</p>
+<p>At the end of the day, this move is all about creating even better results and experiences for our clients. Whether you're relocating to Columbia, investing in Myrtle Beach, buying in Lexington, or selling in Chapin, we’ve got the local know-how and the national backing to guide you home.</p>`
+      },
+      {
+        h2: "What stays the same?",
+        html: `<p>💙 Our heart for South Carolina<br>💙 Our full-service commitment to clients<br>💙 Our incredible team (still here and growing)<br>💙 Our drive to help you love where you live</p>
+<p>We’re the same dedicated team you know and trust, now with a name that reflects our future: <strong>The Tyler Simmons Team</strong>. Expect more service, more innovation, and a whole lot more fun.</p>`
+      },
+      {
+        h2: "What’s new?",
+        html: `<p>✨ Fresh new look<br>✨ Advanced marketing and listing tools<br>✨ Access to Coldwell Banker’s powerful global network<br>✨ Stronger support for buyers and sellers across the entire state</p>
+<p>Our mission remains unchanged: <strong>to provide opportunities, build community, and deliver superior service that turns dreams into reality.</strong></p>`
+      },
+      {
+        h2: "Ready to buy or sell a home in South Carolina?",
+        html: `<p>Let’s talk. We serve <strong>Columbia, Chapin, Rock Hill, Lexington, Myrtle Beach</strong>, and everywhere in between. From first-time buyers to luxury listings, we’ve got the experience, strategy, and passion to make your move successful.</p>
+<p>We’re just getting started. Follow along as <strong>The Tyler Simmons Team at Coldwell Banker Realty</strong> grows, evolves, and brings a fresh energy to South Carolina real estate.</p>
+<p>Let’s do something amazing together 💙</p>
+<p><strong>The Tyler Simmons Team at Coldwell Banker Realty</strong></p>`
+      }
+    ],
+    sources: []
   }
 ];
