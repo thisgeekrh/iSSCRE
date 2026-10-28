@@ -992,6 +992,22 @@ for (const [slug, content] of Object.entries(legacyPages)) fs.writeFileSync(path
 fs.mkdirSync(path.join(root, "blog"), { recursive: true });
 fs.writeFileSync(path.join(root, blogSlug), blogIndex());
 for (const post of posts) fs.writeFileSync(path.join(root, post.slug), blogPost(post));
+// JSON Feed (jsonfeed.org) of blog posts. The Team Hub newsletter editor reads it to add posts to an issue.
+fs.writeFileSync(path.join(root, "blog/feed.json"), `${JSON.stringify({
+  version: "https://jsonfeed.org/version/1.1",
+  title: `${business.name} Blog`,
+  home_page_url: pageUrl(blogSlug),
+  feed_url: `${business.url}blog/feed.json`,
+  items: posts.map((post) => ({
+    id: pageUrl(post.slug),
+    url: pageUrl(post.slug),
+    title: post.label || post.title,
+    summary: post.description,
+    image: postOgImage(post).url,
+    date_published: `${post.date}T12:00:00-04:00`,
+    tags: post.category ? [post.category] : [],
+  })),
+}, null, 2)}\n`);
 fs.writeFileSync(path.join(root, landingSlug), landingPage());
 generateSupportFiles();
 
