@@ -5,6 +5,17 @@
   "feed_url": "https://isellscre.com/blog/feed.json",
   "items": [
     {
+      "id": "https://isellscre.com/blog/south-carolina-november-home-checklist.html",
+      "url": "https://isellscre.com/blog/south-carolina-november-home-checklist.html",
+      "title": "Your November Home Checklist: 10 Things to Do Before the Holidays",
+      "summary": "Cold nights are here and the holidays are close. Ten quick, practical things South Carolina homeowners should do this month to protect their home and guests.",
+      "image": "https://isellscre.com/assets/images/blog/south-carolina-november-home-checklist/share.jpg",
+      "date_published": "2026-11-04T12:00:00-05:00",
+      "tags": [
+        "Home Tips"
+      ]
+    },
+    {
       "id": "https://isellscre.com/blog/columbia-sc-housing-market-fall-2026-buyers.html",
       "url": "https://isellscre.com/blog/columbia-sc-housing-market-fall-2026-buyers.html",
       "title": "Columbia, SC Housing Market: Fall 2026 Update for Buyers",
