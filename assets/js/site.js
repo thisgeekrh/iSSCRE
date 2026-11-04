@@ -58,6 +58,43 @@
     }
   });
 
+  // Remember a Google Ads click for 30 days so the Hub can mark the lead
+  // as coming from the ads, even if they fill out the form on a later page.
+  var AD_KEY = "isscre_ad_click";
+  var AD_FIELDS = ["gclid", "gbraid", "wbraid", "utm_source", "utm_medium", "utm_campaign", "utm_term"];
+  try {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("gclid") || params.get("gbraid") || params.get("wbraid") ||
+        (params.get("utm_source") === "google" && params.get("utm_medium") === "cpc")) {
+      var click = { at: Date.now(), ad_landing: window.location.pathname };
+      AD_FIELDS.forEach(function (key) { if (params.get(key)) click[key] = params.get(key).slice(0, 200); });
+      window.localStorage.setItem(AD_KEY, JSON.stringify(click));
+    }
+  } catch (error) { /* storage blocked: the lead still comes through, just unmarked */ }
+
+  function savedAdClick() {
+    try {
+      var click = JSON.parse(window.localStorage.getItem(AD_KEY) || "null");
+      if (click && Date.now() - click.at < 30 * 24 * 60 * 60 * 1000) return click;
+    } catch (error) { /* ignore */ }
+    return null;
+  }
+
+  document.querySelectorAll('form[action*="hub.servernasmatt.com/leads/"]').forEach(function (form) {
+    form.addEventListener("submit", function () {
+      var click = savedAdClick();
+      if (!click) return;
+      Object.keys(click).forEach(function (key) {
+        if (key === "at" || form.querySelector('input[name="' + key + '"]')) return;
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = click[key];
+        form.appendChild(input);
+      });
+    });
+  });
+
   function loadScript(src, attributes) {
     var script = document.createElement("script");
     script.src = src;
