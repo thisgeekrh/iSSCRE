@@ -46,6 +46,16 @@
       link_url: link.href,
       link_text: (link.textContent || "").trim().slice(0, 100)
     });
+
+    // Google Ads conversion: someone tapped the phone number to call.
+    if (eventName === "phone_click") {
+      window.gtag("event", "conversion", {
+        send_to: "AW-881362907/PJ_BCNflobIdENuPoqQD",
+        value: 1.0,
+        currency: "USD",
+        transport_type: "beacon"
+      });
+    }
   });
 
   function loadScript(src, attributes) {
