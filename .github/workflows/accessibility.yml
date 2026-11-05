@@ -1,0 +1,26 @@
+name: Accessibility check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  axe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install checker
+        run: |
+          npm install --no-save --no-package-lock playwright@1.48.2 axe-core@4.10.2
+          npx playwright install --with-deps chromium
+      - name: Check every page (WCAG 2.2 AA)
+        run: node scripts/accessibility-check.mjs

@@ -19,7 +19,7 @@
   --paper-soft: #f4f5f1;
   --line: #d9ddd6;
   --accent: #b89b5e;
-  --accent-dark: #876f3d;
+  --accent-dark: #7a6436;
   --focus: #2f6fed;
   --success: #1f6b43;
   --radius-sm: 0.55rem;
@@ -975,5 +975,149 @@ p {
   *::after {
     scroll-behavior: auto !important;
     transition: none !important;
+  }
+}
+
+/* Text us button (replaces the old chat widget) */
+.text-us {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.text-us-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.15rem;
+  color: var(--paper);
+  font: inherit;
+  font-weight: 700;
+  background: var(--ink);
+  border: 2px solid var(--paper);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.text-us-toggle:hover {
+  background: #2c302b;
+}
+
+.text-us-panel {
+  order: -1;
+  width: min(22.5rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  padding: 1.1rem 1.15rem 0.6rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.text-us-panel[hidden] {
+  display: none;
+}
+
+.text-us-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.text-us-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+.text-us-close {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  margin: -0.5rem -0.5rem 0 0;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.text-us-close:hover {
+  background: var(--paper-soft);
+}
+
+.text-us-intro {
+  margin: 0.35rem 0 0.9rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.text-us .field {
+  margin-bottom: 0.75rem;
+}
+
+.text-us .field textarea {
+  min-height: 5rem;
+}
+
+.text-us-consent label {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  font-weight: 400;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.text-us-consent input {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.1rem;
+  padding: 0;
+}
+
+.text-us-status {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.text-us-status:empty {
+  display: none;
+}
+
+.text-us-status.is-ok {
+  color: var(--success);
+}
+
+.text-us-status.is-error {
+  color: #a32020;
+}
+
+.text-us .button {
+  width: 100%;
+  justify-content: center;
+}
+
+.text-us .form-note {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+}
+
+@media print {
+  .text-us {
+    display: none;
   }
 }

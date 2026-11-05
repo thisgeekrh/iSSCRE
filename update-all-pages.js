@@ -15,14 +15,12 @@ const pagesToUpdate = [
 /*
 OLD:
 <header>
-   <script src="https://d2twz9av6or5hk.cloudfront.net/1.6/adally.js"></script>
 </header>
 
 NEW:
 <header role="banner" aria-label="Site header">
 </header>
 <body>
-   <script src="https://d2twz9av6or5hk.cloudfront.net/1.6/adally.js"></script>
    <a href="#main-content" class="skip-nav">Skip to main content</a>
 */
 
