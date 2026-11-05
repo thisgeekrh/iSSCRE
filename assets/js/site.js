@@ -80,8 +80,24 @@
     return null;
   }
 
+  var pageOpenedAt = Date.now();
+
+  function setHidden(form, name, value) {
+    var input = form.querySelector('input[name="' + name + '"]');
+    if (!input) {
+      input = document.createElement("input");
+      input.type = "hidden";
+      input.name = name;
+      form.appendChild(input);
+    }
+    input.value = value;
+  }
+
   document.querySelectorAll('form[action*="hub.servernasmatt.com/leads/"]').forEach(function (form) {
     form.addEventListener("submit", function () {
+      // Seconds the visitor spent on the page. Bots post straight to the Hub
+      // and never send this, which is how the Hub's spam filter spots them.
+      setHidden(form, "_elapsed", ((Date.now() - pageOpenedAt) / 1000).toFixed(1));
       var click = savedAdClick();
       if (!click) return;
       Object.keys(click).forEach(function (key) {
